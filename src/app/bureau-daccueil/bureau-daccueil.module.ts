@@ -5,8 +5,7 @@ import { DemandeComponent } from './demande/demande.component';
 
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { CompleterDossierComponent } from './completer-dossier/completer-dossier.component';
-import { DmcComponent } from './congé/dmc/dmc.component';
-import { SuivieComponent } from './congé/suivie/suivie.component';
+
 import { NotifBRComponent } from './Notif/notif-br/notif-br.component';
 import { NotifMPComponent } from './Notif/notif-mp/notif-mp.component';
 import { CourierMPComponent } from './Notif/courier-mp/courier-mp.component';
@@ -20,7 +19,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     DemandeComponent, DashbordComponent, CompleterDossierComponent,
-      DmcComponent, SuivieComponent,NotifBRComponent, NotifMPComponent, CourierMPComponent,
+     NotifBRComponent, NotifMPComponent, CourierMPComponent,
        RecuPapierComponent, 
   ],
   imports: [

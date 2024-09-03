@@ -166,12 +166,12 @@ export class MenuService {
         routeLink: '',
         items: [
           {
-            routeLink: 'bureau-daccueil/congé/demande',
+            routeLink: 'congé/demande',
             icon: '',
             label: 'Demande',
           },
           {
-            routeLink: 'bureau-daccueil/congé/suivie',
+            routeLink: 'congé/suivie',
             icon: '',
             label: 'Suivie',
           },
@@ -195,12 +195,12 @@ export class MenuService {
         routeLink: '',
         items: [
           {
-            routeLink: 'accueil/congé/demande',
+            routeLink: 'congé/demande',
             icon: '',
             label: 'Demande',
           },
           {
-            routeLink: 'accueil/congé/suivie',
+            routeLink: 'congé/suivie',
             icon: '',
             label: 'Suivie',
           },

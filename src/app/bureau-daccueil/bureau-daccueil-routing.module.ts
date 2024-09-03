@@ -4,9 +4,9 @@ import { DemandeComponent } from './demande/demande.component';
 
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { CompleterDossierComponent } from './completer-dossier/completer-dossier.component';
-import { DmcComponent } from './congé/dmc/dmc.component';
+
 import { NotifBRComponent } from './Notif/notif-br/notif-br.component';
-import { SuivieComponent } from './congé/suivie/suivie.component';
+
 import { NotifMPComponent } from './Notif/notif-mp/notif-mp.component';
 import { CourierMPComponent } from './Notif/courier-mp/courier-mp.component';
 import { RecuPapierComponent } from './Notif/recu-papier/recu-papier.component';
@@ -18,8 +18,7 @@ const routes: Routes = [
   
   { path: 'dashbord', component: DashbordComponent},
   { path: 'completerDossier', component: CompleterDossierComponent},
-  { path: 'congé/demande', component: DmcComponent},
-  { path: 'congé/suivie', component: SuivieComponent },
+  
   { path: 'notif-br', component: NotifBRComponent},
   { path: 'notif-mp', component: NotifMPComponent},
   { path: 'courrier-mp', component: CourierMPComponent},

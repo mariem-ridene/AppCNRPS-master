@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-details-conge',
   templateUrl: './details-conge.component.html',
-  styleUrls: ['./details-conge.component.scss']
+  styleUrls: ['./details-conge.component.css']
 })
 export class DetailsCongeComponent implements OnInit {
 
@@ -17,10 +17,11 @@ export class DetailsCongeComponent implements OnInit {
   };
 
   conge = {
-    type: 'Congé annuel',
-    dateDebut: new Date('2024-08-20'),
-    dateFin: new Date('2024-08-30'),
-    periode: 10
+    type: 'Repos',
+    dateDebut: new Date('2024-08-30'),
+    dateFin: new Date('2024-09-05'),
+    periode: 6,
+    certificatUrl: 'path/to/certificat.pdf'  // Ajoutez cette ligne avec le chemin du certificat
   };
 
   constructor() { }
@@ -36,5 +37,7 @@ export class DetailsCongeComponent implements OnInit {
     // Logique pour refuser la demande de congé
     console.log('Demande de congé refusée');
   }
+
+ 
 
 }

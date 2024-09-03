@@ -1,105 +1,31 @@
-<html>
-<head>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #eeeeea;
-            font-size: 0.85em;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .content {
-            margin-left: 220px;
-            padding: 20px;
-            padding-top: 70px; /* Espace pour éviter que le contenu soit masqué par la navbar */
-            width: calc(100% - 220px);
-            width: 1000px;
-            margin-left: 0px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .search-filters input, .search-filters select {
-            margin-right: 15px;
-            padding: 8px;
-        }
-
-        .demande-conge-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .demande-conge-table th, .demande-conge-table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .details-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 12px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .details-button i {
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-
-        .etat {
-            font-weight: bold;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .etat-accepte {
-            background-color: #28a745;
-        }
-
-        .etat-refuse {
-            background-color: #dc3545;
-        }
-
-        .etat-non-repondu {
-            background-color: #ffc107;
-            color: #000;
-        }
-    </style>
-</head>
-
 <body>
     <div class="content">
         <div class="header">
             <h2>Liste des Demandes de Congés</h2>
-            <div class="search-filters">
-                <label>Du </label>
-                <input type="date" placeholder="Recherche par période">
-                <label>A </label>
-                <input type="date" placeholder="Recherche par période">
+        </div>
+        <div class="search-filters">
+            <div class="date-range">
+                <label for="startDate"><i class="material-icons">date_range</i> Du</label>
+                <input type="date" id="startDate" placeholder="Recherche par période">
+                <label for="endDate"><i class="material-icons">date_range</i> À</label>
+                <input type="date" id="endDate" placeholder="Recherche par période">
+            </div>
+            <div class="filter-type">
                 <select>
-                    <option value="">Type de vacances</option>
-                    <option value="conge_annuel">Congé Annuel</option>
-                    <option value="conge_maladie">Congé Maladie</option>
-                    <!-- Autres types -->
+                    <option value="">Type de congés</option>
+                    <option value="vacation">Repos</option>
+                    <option value="sick">Maladie</option>
+                    <option value="personal">Exceptionnel</option>
+                    <option value="other">Autre</option>
                 </select>
             </div>
         </div>
-        
         <table class="demande-conge-table">
             <thead>
                 <tr>
                     <th>Nom & Prénom</th>
-                    <th>Type de Vacances</th>
-                    <th>Nombre de Jours</th>
+                    <th>Type de Congés</th>
+                    <th>Période</th>
                     <th>État</th>
                     <th>Action</th>
                 </tr>
@@ -107,8 +33,8 @@
             <tbody>
                 <tr *ngFor="let demande of demandes">
                     <td>{{ demande.nom }} {{ demande.prenom }}</td>
-                    <td>{{ demande.typeVacances }}</td>
-                    <td>{{ demande.nombreJours }}</td>
+                    <td>{{ demande.typeConges }}</td>
+                    <td>{{ demande.periode }}</td>
                     <td>
                         <span [ngClass]="{
                             'etat': true,
@@ -127,7 +53,5 @@
                 </tr>
             </tbody>
         </table>
-        
     </div>
 </body>
-</html>

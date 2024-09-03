@@ -8,8 +8,6 @@ import { CourrierService } from '../courrier-bloq/courrier.service';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit {
-
-  
   showMissingPaper = false;
   showBlockReason = false;
   missingDocsDetails: string = '';
@@ -51,9 +49,22 @@ export class NotificationComponent implements OnInit {
   }
 
   sendPhoneMessage() {
-    this.router.navigate(['/msg-tel'], { queryParams: { type: 'blockReason', details: this.blockingReason } });
+    if (this.showMissingPaper) {
+      this.router.navigate(['/msg-tel'], { 
+        queryParams: { 
+          type: 'missing-docs', 
+          papers: this.selectedDocs.join(',') 
+        } 
+      });
+    } else if (this.showBlockReason) {
+      this.router.navigate(['/msg-tel'], { 
+        queryParams: { 
+          type: 'block-reason', 
+          reason: this.blockingReason 
+        } 
+      });
+    }
   }
-
   
 
   constructor(private route: ActivatedRoute, private courrierService: CourrierService, private router: Router) {}

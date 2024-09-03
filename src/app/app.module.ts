@@ -14,9 +14,11 @@ import { CourrierBloqComponent } from './courrier-bloq/courrier-bloq.component';
 import { NotificationComponent } from './notification/notification.component';
 import { MsgTelComponent } from './msg-tel/msg-tel.component';
 import { LoginPageComponent } from './login/login-page.component';
+import { DmcComponent } from './congé/dmc/dmc.component';
+import { SuivieComponent } from './congé/suivie/suivie.component';
 
 @NgModule({
-  declarations: [AppComponent, UnauthorizedComponent,CourrierBloqComponent, NotificationComponent, MsgTelComponent,LoginPageComponent],
+  declarations: [AppComponent, UnauthorizedComponent,CourrierBloqComponent, NotificationComponent, MsgTelComponent,LoginPageComponent, DmcComponent, SuivieComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
