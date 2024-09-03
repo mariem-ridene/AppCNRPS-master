@@ -1,0 +1,71 @@
+body {
+    background-color: #f2f1e9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top:50px ;
+}
+
+.container {
+    margin-top: 40px;
+    max-width: 800px;
+  
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #e6e3d3;; /* Couleur cohérente avec le thème général */
+    color: #5c5c0f;;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-size: 1.25rem;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #faf8f7;
+}
+
+.document-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.document-list li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.document-list li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+}
+
+.document-list li a {
+    text-decoration: none;
+    color: #5c5c0f;
+    font-weight: 500;
+}
+
+.document-list li a:hover {
+    text-decoration: underline;
+}
+
+.document-list li i {
+    color: #5c5c0f;
+    font-size: 1.2rem;
+    cursor: pointer;
+}

@@ -1,0 +1,103 @@
+<div class="add-employee-container">
+    <h2 class="header-title">Ajouter un Nouvel Employé</h2>
+    <form (ngSubmit)="onAddEmployee()" class="employee-form">
+        <!-- Section Informations de Base -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Informations de Base</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="nom">
+                        <i class="material-icons">person</i> Nom
+                    </label>
+                    <input id="nom" type="text" [(ngModel)]="newEmployee.nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">
+                        <i class="material-icons">person_outline</i> Prénom
+                    </label>
+                    <input id="prenom" type="text" [(ngModel)]="newEmployee.prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">
+                        <i class="material-icons">email</i> Email
+                    </label>
+                    <input id="email" type="email" [(ngModel)]="newEmployee.email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">
+                        <i class="material-icons">phone</i> Téléphone
+                    </label>
+                    <input id="telephone" type="tel" [(ngModel)]="newEmployee.telephone" name="telephone" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Informations Professionnelles -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Informations Professionnelles</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="service">
+                        <i class="material-icons">business_center</i> Service
+                    </label>
+                    <input id="service" type="text" [(ngModel)]="newEmployee.service" name="service" required>
+                </div>
+                <div class="form-group">
+                    <label for="fonction">
+                        <i class="material-icons">assignment_ind</i> Fonction
+                    </label>
+                    <input id="fonction" type="text" [(ngModel)]="newEmployee.fonction" name="fonction" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Informations de Connexion -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Informations de Connexion</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="login">
+                        <i class="material-icons">account_circle</i> Login
+                    </label>
+                    <input id="login" type="text" [(ngModel)]="newEmployee.login" name="login" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">
+                        <i class="material-icons">lock</i> Mot de Passe
+                    </label>
+                    <div class="input-group">
+                        <input id="password" type="password" [(ngModel)]="newEmployee.password" name="password" required [type]="showPassword ? 'text' : 'password'" class="form-control">
+                        <button type="button" class="btn btn-outline-secondary custom-btn-size" (click)="togglePasswordVisibility()" style="border: none; background: transparent;">
+                            <span class="material-icons custom-icon-size" [style.color]="showPassword ? '#f44336' : '#4CAF50'">
+                                {{ showPassword ? 'visibility_off' : 'visibility' }}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Photo de Compte -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Photo de Compte</h3>
+            </div>
+            <div class="card-body photo-section">
+                <input id="photo" type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input">
+                <img [src]="selectedPhoto || 'assets/default-avatar.png'" alt="Photo de Compte" class="account-photo">
+            </div>
+        </div>
+
+        <!-- Boutons Soumettre et Annuler -->
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Enregistrer</button>
+            <button type="button" class="btn-cancel" (click)="onCancel()">Annuler</button>
+        </div>
+    </form>
+</div>

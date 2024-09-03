@@ -1,0 +1,50 @@
+
+<body>
+<div class="content">
+  <div class="container">
+    <h2>Liste des Dossiers à Traiter</h2>
+    <table class="table table-hover dossier-table">
+      <thead>
+        <tr>
+          <th style="background-color: #e6e3d3;color:#5c5c5c;">Dossier</th>
+          <th style="background-color: #e6e3d3;color:#5c5c5c;">État</th>
+          <th style="background-color: #e6e3d3;color:#5c5c5c;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dossier of dossiers">
+          <td>
+            <div class="dossier-info">
+              <span><strong>Matricule:</strong> {{ dossier.matricule }}</span>
+              <span><strong>Type:</strong> {{ dossier.type }}</span>
+              <span><strong>Date de Réception:</strong> {{ dossier.dateReception | date:'dd/MM/yyyy' }}</span>
+            </div>
+          </td>
+          <td>
+            <span class="badge" [ngClass]="getBadgeClass(dossier.etat)">
+              {{ dossier.etat }}
+            </span>
+          </td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn btn-secondary" (click)="updateStatus(dossier)" routerLink="dossier/detail" style="border-radius: 12px;background-color: gray;">
+                Mettre à jour 
+              </button>
+
+              <i class="fas fa-file-alt support-icon" (click)="showDocuments(dossier.matricule)" title="Voir les documents" routerLink="/bureau-de-service/dossier/support"></i>
+              
+              <!-- Icône de notification pour "Informer affilié" pour les dossiers bloqués -->
+              <i *ngIf="dossier.etat === 'Bloqué'" class="fas fa-bell notify-icon" (click)="informerAffilie(dossier)" title="Informer affilié" routerLink="/bureau-de-service/dossier/notifier"></i>
+              
+              <!-- Icône de suppression professionnelle et cohérente avec l'interface -->
+              <i *ngIf="dossier.etat === 'Finalisé' || dossier.etat === 'Bloqué'" class="fas fa-trash-alt delete-icon" (click)="deleteDossier(dossier)" title="Supprimer le dossier" style="color: #e60000;"></i>
+
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+

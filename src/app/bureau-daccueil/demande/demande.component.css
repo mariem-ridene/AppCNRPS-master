@@ -1,0 +1,53 @@
+.content {
+    
+   
+    padding: 20px;
+    padding-top: 60px; 
+    margin-left: 0px;
+}
+
+.card {
+    width:700px;
+    position: relative;
+    right:100px;
+   
+}
+.contenu {
+display: flex;
+justify-content: center; 
+
+
+}
+
+.form-group {
+margin-bottom: 1.5rem; /* Espacement entre les groupes de champs */
+}
+
+.btn-primary, .btn-secondary {
+border-radius: 20px;
+padding: 10px 20px;
+border: none; /* Enlever les bordures */
+}
+
+.btn-primary {
+background-color: #265112; /* Couleur du bouton principal */
+}
+
+.btn-secondary {
+background-color: #6c757d; /* Couleur du bouton secondaire */
+}
+
+
+
+.background-img {
+position: absolute;
+top: 170px; 
+left: 130px; 
+opacity: 0.25;
+}
+
+
+.required {
+color: red; /* Définit la couleur de l'étoile en rouge */
+font-size: 1.2em; /* Augmente légèrement la taille de l'étoile (facultatif) */
+}

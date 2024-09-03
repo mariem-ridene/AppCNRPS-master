@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    margin: 0;
+    background-color: #f2f1e9;
+}
+.container {
+    background-color: #faf8f7;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 600px;
+}
+.title {
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #333;
+    font-size: 26px;
+    
+}
+.image-container {
+    margin-bottom: 20px;
+}
+.image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.button-container button {
+    background-color: #153ae2; /* Couleur bleue de CNRPS Tunisie */
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 48%;
+}
+.button-container button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+.missing-documents {
+    margin-top: 30px;
+    text-align: left;
+}
+.missing-documents label {
+    
+    display: block;
+    margin-bottom: 10px;
+}
+.missing-documents .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.missing-documents .checkbox-container {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.missing-documents .checkbox-container input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+.missing-documents textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    height: 100px;
+    resize: vertical;
+}
+
+.missing-documents, .block-reason {
+    margin-top: 20px;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}

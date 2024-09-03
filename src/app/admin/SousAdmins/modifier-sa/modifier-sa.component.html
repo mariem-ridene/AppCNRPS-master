@@ -1,0 +1,87 @@
+<div class="container">
+  <h2>Modifier Sous-Admin</h2>
+
+  <!-- Etat actuel de l'autorisation -->
+  <div class="authorization-status">
+    <span [style.color]="autorisationStatus === 'Autorisé' ? 'green' : 'red'"> 
+      {{ autorisationStatus }}
+    </span>
+    <button type="button" 
+            class="btn" 
+            [style.background-color]="autorisationStatus === 'Autorisé' ? 'red' : 'green'" 
+            (click)="toggleAuthorization()">
+        {{ autorisationStatus === 'Autorisé' ? 'Arrêter l\'autorisation' : 'Lancer l\'autorisation' }}
+    </button>
+  </div>
+
+  <!-- Champs de date de début et de fin d'autorisation (affichés seulement si autorisé) -->
+  <div *ngIf="autorisationStatus === 'Autorisé'">
+    <div class="form-group">
+      <label for="startDate">Date de Début d'Autorisation</label>
+      <input id="startDate" formControlName="startDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">Date de Fin d'Autorisation</label>
+      <input id="endDate" formControlName="endDate" type="date" class="form-control" />
+    </div>
+  </div>
+
+  <form [formGroup]="modifySubAdminForm" (ngSubmit)="onSubmit()">
+    <!-- Login -->
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input id="login" formControlName="login" type="text" class="form-control" />
+    </div>
+
+    <!-- Mot de Passe -->
+    <div class="form-group">
+      <label for="password">Mot de Passe</label>
+      <div class="input-group">
+        <input id="password" formControlName="password" [type]="showPassword ? 'text' : 'password'" class="form-control" />
+        <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary custom-btn-size" (click)="togglePasswordVisibility()" style="border: none; background: transparent;">
+            <span class="material-icons custom-icon-size" [style.color]="showPassword ? '#f44336' : '#4CAF50'">
+              {{ showPassword ? 'visibility_off' : 'visibility' }}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nom Complet (Non modifiable) -->
+    <div class="form-group">
+      <label for="fullName">Nom Complet</label>
+      <p id="fullName" class="form-control-static">{{ modifySubAdminForm.get('fullName')?.value }}</p>
+    </div>
+
+    <!-- Email (Non modifiable) -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <p id="email" class="form-control-static">{{ modifySubAdminForm.get('email')?.value }}</p>
+    </div>
+
+    <!-- Téléphone (Non modifiable) -->
+    <div class="form-group">
+      <label for="phone">Téléphone</label>
+      <p id="phone" class="form-control-static">{{ modifySubAdminForm.get('phone')?.value }}</p>
+    </div>
+
+    <!-- Service (Champ texte, non modifiable) -->
+    <div class="form-group">
+      <label for="service">Service</label>
+      <p id="service" class="form-control-static">{{ modifySubAdminForm.get('service')?.value }}</p>
+    </div>
+
+    <!-- Fonction (Champ texte, non modifiable) -->
+    <div class="form-group">
+      <label for="fonction">Fonction</label>
+      <p id="fonction" class="form-control-static">{{ modifySubAdminForm.get('fonction')?.value }}</p>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Modifier</button>
+    </div>
+  </form>
+</div>

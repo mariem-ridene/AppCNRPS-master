@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Dossier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Mise à Jour de l'État du Dossier</h2>
+        <div class="status-selection">
+            <div class="status-card" (click)="selectStatus('in-progress')">
+                <i class="fas fa-spinner fa-2x" style="color:orange"></i>
+                <span>En Cours</span>
+            </div>
+            <div class="status-card" (click)="selectStatus('completed')">
+                <i class="fas fa-check-circle fa-2x"  style="color:green"></i>
+                <span>Terminé</span>
+            </div>
+            <div class="status-card" (click)="selectStatus('blocked')">
+                <i class="fas fa-ban fa-2x"  style="color:red"></i>
+                <span>Bloqué</span>
+            </div>
+        </div>
+
+        <!-- Section Cause de Blocage -->
+        <div class="block-reason" *ngIf="selectedStatus === 'blocked'">
+            <h3>Cause du Blocage</h3>
+            <div class="block-options">
+                <button class="btn btn-warning" (click)="selectBlockReason('missing-paper')">Manque de Papier</button>
+                <button class="btn btn-secondary" (click)="selectBlockReason('other')">Autre</button>
+            </div>
+            
+        </div>
+
+        <div class="comment-section">
+            <label for="comment">Laisser un commentaire</label>
+            <textarea id="comment" class="form-control" rows="4" placeholder="Entrez vos commentaires ici..."></textarea>
+        </div>
+        <button class="btn btn-success submit-btn" (click)="submitUpdate()">Envoyer</button>
+    </div>
+
+    
+</body>
+</html>

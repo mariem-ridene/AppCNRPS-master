@@ -1,0 +1,80 @@
+
+<!-- Main Content -->
+<div class="content">
+    <div class="contenu">
+        <div class="col-lg-6 col-12">
+            <div class="card" style="background-color: #faf8f7;">
+                <img src="https://upload.wikimedia.org/wikipedia/fr/6/64/CNRPS.png" alt="logo cnrps" class="background-img" width="350px" length="350px">
+                <div class="card-header">
+                    <h2 style="color:#5c5c0f;">Completer Dossier</h2>
+                </div>
+                <br>
+                <div class="card-content">
+                    <div class="card-body">
+                        <h6 id="etat-dossier" [ngStyle]="{color: etatDossier === 'Complet' ? 'green' : 'red'}">
+                            {{ etatDossier === 'Complet' ? 'Dossier complet' : 'Dossier non complet' }}
+                        </h6>
+                        <form (ngSubmit)="onSubmit()">
+                            <div class="form-row">
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-1">Matricule<span class="required">*</span></label>
+                                        <input type="text" id="basic-form-1" class="form-control" name="fname" style="color:black;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-2">Type de dossier<span class="required">*</span></label>
+                                        <select id="basic-form-2" class="form-control" name="lname" style="color:black;">
+                                            <option value="Smith" style="background-color:white;">PP (قرض شخصي)</option>
+                                            <option value="Johnson" style="background-color:white;">PV (قرض سكني )</option>
+                                            <option value="Williams" style="background-color:white;">PV (قرض سيارة )</option>
+                                            <option value="Brown" style="background-color:white;">CD (رأس المال عند الوفاة)</option>
+                                            <option value="Jones" style="background-color:white;">AV/CD (تسبقة على حساب رأس المال)</option>
+                                            <option value="Jones" style="background-color:white;">P/RET (جراية تقاعد)</option>
+                                            <option value="Jones" style="background-color:white;">P/REV (جراية أرملة)</option>
+                                            <option value="Jones" style="background-color:white;">PTO (جراية وقتية للأيتام)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-3">Source de dossier<span class="required">*</span></label>
+                                        <select id="basic-form-3" class="form-control" name="email" style="color:black;">
+                                            <option value="example1@example.com" style="background-color:white;">Siége Tunis</option>
+                                            <option value="example2@example.com" style="background-color:white;">Par poste</option>
+                                            <option value="example3@example.com" style="background-color:white;">Présentiel</option>
+                                            <option value="example4@example.com" style="background-color:white;">*</option>
+                                            <option value="example5@example.com" style="background-color:white;">*</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group mb-2">
+                                <label for="missing-papers">Papiers manquants</label>
+                                <div *ngFor="let paper of papersManquants" class="custom-checkbox">
+                                    <input type="checkbox" [id]="paper" [value]="paper" (change)="updateEtatDossier()" class="custom-checkbox-input">
+                                    <label [for]="paper" class="custom-checkbox-label">{{ paper }}</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group mb-2">
+                                <label for="basic-form-9">Commentaire</label>
+                                <textarea id="basic-form-9" rows="4" class="form-control" name="comment" style="color:black;"></textarea>
+                            </div>
+                            <br>
+                            <span class="required" style="font-size: 11px;">(*) champ obligatoire</span>
+                            <br><br>
+                            <button type="submit" class="btn btn-primary mr-2">Valider</button>
+                            <input type="reset" class="btn btn-secondary" value="Annuler">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

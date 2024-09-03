@@ -1,0 +1,17 @@
+
+<body>
+    <div class="container">
+        <div class="title">Notification De Bien Recu</div>
+        <div class="image-container">
+            <img src="https://img.freepik.com/vecteurs-premium/blindage-securise-du-document-electronique_212005-16.jpg" alt="Notification bien recu">
+        </div>
+        
+        <div class="button-container">
+            <button [routerLink]="['/msg-tel']" [queryParams]="{ type: 'notif-br' }">Message téléphonique</button>
+
+            <button routerLink="/bureau-daccueil/recu-papier">Reçu Papier</button>
+        </div>
+    </div>
+</body>
+
+

@@ -1,0 +1,91 @@
+<body>
+  <div class="container">
+    <!-- En-tête -->
+    <div class="header">
+      <div class="header-right">
+        <p>وحدة اللامركزية</p>
+        <p>إقليم الوسط</p>
+        <p>المركز المحلي بمنزل تميم</p> 
+      </div>
+      <div class="header-img">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/6/64/CNRPS.png" alt="Logo CNRPS">
+      </div>
+      <div class="header-title">
+        <h1>الصندوق الوطني للتقاعد والحيطة الاجتماعية</h1>
+      </div>
+    </div>
+
+    <br>
+    <hr>
+
+    <!-- Contenu -->
+    <div class="content">
+      <!-- Affichage conditionnel selon le type de message -->
+      <h2 style="text-align: center;" *ngIf="missingDocs  && !blockingReason"><strong>مراسلة</strong></h2>
+      <h2 style="text-align: center;" *ngIf="blockingReason && !missingDocs "><strong>مراسلة رفض ملف</strong></h2>
+     
+
+      <!-- Informations générales -->
+      <div class="content">
+        <p><strong>السيد:</strong> {{ affiliateName }}</p>
+        <p><strong> المعرف الوحيد :</strong> {{ dossierNumber }}</p>
+        <p><strong>العنوان:</strong></p>
+      </div>
+
+      <!-- Section pour les documents manquants (nouvelle demande) -->
+      <div *ngIf="missingDocs && !blockingReason">
+        <div><strong>الموضوع:</strong>
+          تكملة ملف ..... <br>
+          <strong>المرجع:</strong> مطلبكم الوارد علينا بتاريخ {{currentDate}} <br>
+          وبعد، كي يتسنى لنا دراسة ملفكم المتعلق ب........ والمذكور بالمرجع أعلاه، نطلب منكم مدنا بالوثائق التالية:
+          <br>
+          <ul>
+            <li>{{ missingDocs }}</li>
+          </ul>
+          وذلك في أقرب الآجال للتسريع في النظر في ملفكم <br>
+          وتقبلوا عبارات الاحترام
+        </div>
+      </div>
+
+     
+
+      <!-- Section pour le refus de dossier -->
+      <div *ngIf="blockingReason && !missingDocs ">
+        <p>نتأسف لإعلامكم أن ملف ...... المتقدم لنا بتاريخ {{ currentDate }} تم رفضه و ذلك بسبب</p>
+        <p>{{ blockingReason }}</p>
+      </div>
+
+      <!-- Aucune information fournie -->
+      <div *ngIf="!missingDocs && !blockingReason ">
+        <div class="title">Aucune information fournie.</div>
+      </div>
+    </div>
+
+    <!-- Pied de page -->
+    <div class="footer">
+      <div>
+        <p>الموقع: منزل تميم</p>
+      </div>
+      <div>
+        <p>التاريخ: {{ currentDate }}</p>
+      </div>
+      <div>
+        <p>الإمضاء :</p>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="note">
+      <div class="information">
+        <p>www.cnrps.nat.tn</p>
+        <p>Adresse : Rue De La Plage, Manzil Tamim 8080</p>
+        <p>Tél : +216 72 301 010</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bouton pour imprimer -->
+  <div class="button-container">
+    <button onclick="window.print()">Imprimer</button>
+  </div>
+</body>

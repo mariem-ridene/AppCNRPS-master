@@ -1,0 +1,81 @@
+
+    
+        
+ <body>
+<!-- Main Content -->
+<div class="content">
+    <div>
+        <h2 style="color: #5c5c0f; margin-left: -200px;">Liste Des Employés</h2>
+    </div>
+    <div class="search-container">
+        <div class="search-field">
+            <label for="name">Nom</label>
+            <input id="name" type="text" [(ngModel)]="filters.name" placeholder="Rechercher le nom">
+        </div>
+
+        <div class="search-field">
+            <label for="service">Service</label>
+            <select id="service" [(ngModel)]="filters.service">
+                <option value="accueil" class="op">Service accueil</option>
+                <option value="pensions" class="op">Service pensions </option>
+                <option value="financier" class="op">Service financier</option>
+                <option value="contentieux" class="op">Service contentieux </option>
+                <option value="contrôle" class="op">Service contrôle </option>
+            </select>
+        </div>
+
+        <div class="search-field">
+            <label for="joinDate">Date De Recrutement</label>
+            <input id="joinDate" type="date" [(ngModel)]="filters.joinDate">
+        </div>
+
+        <button (click)="applyFilters()">Rechercher</button>
+    </div>
+
+    <div class="result-table">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>  Nom </th>
+                        <th>Date De Recrutement</th>
+                        <th>Service</th>
+                        <th>Fonction</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of filteredUsers">
+                        <td>{{ user.id }}</td>
+                        <td><img [src]="user.avatar" class="avatar" alt="Avatar"> {{ user.name }}</td>
+                        <td>{{ user.joinDate }}</td>
+                        <td>{{ user.service }}</td>
+                        <td>{{ user.fonction }}</td>
+                        
+                        <td>
+                            <i class="material-icons edit-icon"  routerLink="/admin/employé/modifier">edit</i>
+                            <i class="fas fa-trash-alt delete-icon" (click)="deleteUser(user.id)" title="Supprimer sousAdmin"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <span>{{ filteredUsers.length }} total</span>
+                <div class="pagination-controls">
+                    <i class="material-icons">skip_previous</i>
+                    <i class="material-icons">navigate_before</i>
+                    <span class="page-number">1</span>
+                    <i class="material-icons">navigate_next</i>
+                    <i class="material-icons">skip_next</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton Ajouter -->
+    <button class="btn-add" routerLink="/admin/employé/ajouter">
+        Ajouter
+    </button>
+</div>
+</body> 

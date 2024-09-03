@@ -1,0 +1,211 @@
+<!-- fiche-courrier.component.html -->
+<!--<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification de Manque de Papiers</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120vh;
+      margin: 0;
+      background-color: #f2f1e9;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 600px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .header img {
+      max-width: 120px;
+    }
+    .header .contact-info {
+      text-align: right;
+      font-size: 14px;
+      color: #666;
+    }
+    .title {
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      color: #333;
+      font-size: 26px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h6 {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section li {
+      margin-bottom: 10px;
+      padding: 5px 0;
+      border-bottom: 1px solid #f2f1e9;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .footer {
+      text-align: left;
+      font-size: 14px;
+      color: #666;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .button-container button {
+      background-color: #153ae2;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .button-container button:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://upload.wikimedia.org/wikipedia/fr/6/64/CNRPS.png" alt="Logo CNRPS">
+      <div class="contact-info">
+        <p>CNRPS Tunisie</p>
+        <p>Adresse :Rue De La Plage, Manzil Tamim 8080</p>
+        <p>Tél : +216 72 301 010</p>
+      </div>
+    </div>
+    <div class="title">Recu du Manque de Papiers</div>
+    <div class="section">
+      <h6>Papiers manquants :</h6>
+      <ul>
+        <li *ngFor="let paper of missingPapers">{{ paper }}</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h6>Papiers déjà fournis :</h6>
+      <ul>
+        <li *ngFor="let paper of checkedPapers">{{ paper }}</li>
+      </ul>
+    </div>
+    <div class="message">
+      <p>Votre dossier reçu est incomplet. Veuillez fournir les documents manquants le plus tôt possible pour accélérer le traitement de votre dossier.</p>
+    </div>
+    <div class="footer">
+      <p>Merci pour votre coopération.</p>
+      <p>Pour toute question ou suivi, veuillez contacter notre service clientèle.</p>
+    </div>
+    <div class="button-container">
+      <button onclick="window.print()">Imprimer</button>
+    </div>
+    
+  </div>
+</body>
+</html>-->
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-right">
+           <p>وحدة اللامركزية </p>
+           <p>إقليم الوسط</p>
+           <p>المركز المحلي بمنزل تميم</p> 
+            </div>
+           
+            <div class="header-img" ><img src="https://upload.wikimedia.org/wikipedia/fr/6/64/CNRPS.png" alt="Logo CNRPS"></div>
+            
+            <div  class="header-title">
+                <h1>الصندوق الوطني للتقاعد والحيطة الاجتماعية</h1>
+               
+            </div>
+            <div></div> <!-- Empty div to balance the layout -->
+        </div>
+        <br>
+        <hr>
+            <div class="content">
+                <h2 style="text-align: center;"><strong>مراسلة</strong></h2>
+               
+                <div class="content">
+                   
+                    <p><strong>السيد:</strong> {{ affiliateName }}</p>
+                    <p><strong> المعرف الوحيد :</strong> {{ dossierNumber }}</p>
+                    <p><strong>العنوان:</strong> {{ currentDate }}</p>
+                    
+                </div>
+        
+                <div><strong>الموضوع:</strong>
+                  تكملة ملف ..... <br>
+<strong>المرجع:</strong> مطلبكم الوارد علينا بتاريخ{{currentDate}} <br>وبعد،كي يتسنى لنا دراسة ملفكم المتعلق ب........ و المذكور بالمرجع أعلاه، نطلب منكم مدنا بالوثائق التالية:
+
+<br>
+<ul>
+  <li *ngFor="let paper of missingPapers">{{ paper }}</li>
+</ul>
+
+وذالك في أقرب الآجال للتسريع في النظر في ملفكم  <br> 
+وتقبلوا عبارات الاحترام
+                </div>
+               
+            </div>
+        
+            <div class="footer">
+                <div>
+                    <p>الموقع: منزل تميم</p>
+                </div>
+                <div>
+                    <p>التاريخ: {{ currentDate }}</p>
+                </div>
+                <div>
+                    <p>الإمضاء :</p>
+                </div>
+            </div>
+        
+            <div class="note">
+                
+                <div class="information">
+                    <p>www.cnrps.nat.tn </p>
+                   <p>Adresse :Rue De La Plage, Manzil Tamim 8080</p>
+                  <p>Tél : +216 72 301 010</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="button-container">
+            <button onclick="window.print()">Imprimer</button>
+        </div>
+        
+        </body>
+    

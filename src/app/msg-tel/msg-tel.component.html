@@ -1,0 +1,55 @@
+<body>
+    <div class="container">
+        <div class="title">Notifier par Message Téléphonique</div>
+        <div class="image-container">
+            <img src="https://example.com/phone-icon.png" alt="Phone Icon">
+        </div>
+        
+        <div class="form-group">
+            <label for="affiliateName">Nom de l'affilié :</label>
+            <input type="text" id="affiliateName" [(ngModel)]="affiliateName" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Numéro de téléphone :</label>
+            <input type="text" id="phoneNumber" [(ngModel)]="phoneNumber" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="messageContent">Message :</label>
+            <textarea id="messageContent" [(ngModel)]="messageContent" placeholder="Entrez votre message ici...">
+Bonjour {{ affiliateName }}, votre dossier est incomplet. Veuillez fournir les documents manquants pour continuer le traitement.
+            </textarea>
+        </div>
+
+        <div class="title">{{ messageTitle }}</div>
+        <div class="content">
+            <p>{{ messageBody }}</p>
+            <ul *ngIf="missingPapers && missingPapers.length > 0">
+                <li *ngFor="let paper of missingPapers">- {{ paper }}</li>
+            </ul>
+            <p *ngIf="blockingReason">{{ blockingReason }}</p>
+        </div>
+
+        <div class="button-container">
+            <button (click)="sendSMS()">Envoyer SMS</button>
+        </div>
+    </div>
+</body>
+
+
+<!--<body>
+    <div class="container">
+        <div class="title">{{ messageTitle }}</div>
+        <div class="content">
+            <p>{{ messageBody }}</p>
+            <ul *ngIf="missingPapers && missingPapers.length > 0">
+                <li *ngFor="let paper of missingPapers">- {{ paper }}</li>
+            </ul>
+            <p *ngIf="blockingReason">{{ blockingReason }}</p>
+        </div>
+        <div class="button-container">
+            <button (click)="confirmMessage()">Confirmer</button>
+        </div>
+    </div>
+</body>-->

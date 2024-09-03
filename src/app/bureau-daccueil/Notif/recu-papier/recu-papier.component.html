@@ -1,0 +1,77 @@
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-right">
+           <p>وحدة اللامركزية </p>
+           <p>إقليم الوسط</p>
+           <p>المركز المحلي بمنزل تميم</p> 
+            </div>
+           
+            <div class="header-img" ><img src="https://upload.wikimedia.org/wikipedia/fr/6/64/CNRPS.png" alt="Logo CNRPS"></div>
+            
+            <div  class="header-title">
+                <h1>الصندوق الوطني للتقاعد والحيطة الاجتماعية</h1>
+               
+            </div>
+            <div></div> <!-- Empty div to balance the layout -->
+        </div>
+    <br>
+    <hr>
+        <div class="content">
+            <h2 style="text-align: center;"><strong>وصل في تسليم وثائق</strong></h2>
+           
+            <div class="content">
+               
+                <p><strong> اسم المنخرط (ة):</strong> {{ affiliateName }}</p>
+                <p><strong> المعرف الوحيد :</strong> {{ dossierNumber }}</p>
+                <p><strong> تاريخ التسليم:</strong> {{ currentDate }}</p>
+                
+            </div>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>الوثائق</th>
+                        <th>العدد</th>
+                        <th>المصلحة المعنية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>.........................</td>
+                        <td>.........................</td>
+                        <td>.........................</td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="footer">
+            <div>
+                <p>الموقع: منزل تميم</p>
+            </div>
+            <div>
+                <p>التاريخ: {{ currentDate }}</p>
+            </div>
+            <div>
+                <p>الإمضاء :</p>
+            </div>
+        </div>
+    
+        <div class="note">
+            <p>هام: الرجاء الاحتفاظ بهذا الوصل وتقديمه عند الاقتضاء</p>
+            <div class="information">
+                <p>www.cnrps.nat.tn </p>
+               <p>Adresse :Rue De La Plage, Manzil Tamim 8080</p>
+              <p>Tél : +216 72 301 010</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="button-container">
+        <button onclick="window.print()">Imprimer</button>
+    </div>
+    
+    </body>

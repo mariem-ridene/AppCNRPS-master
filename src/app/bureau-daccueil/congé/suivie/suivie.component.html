@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suivi des Demandes de Congé</title>
+  
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f1e9;
+      font-size: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height:auto;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 30px;
+      background-color: #faf8f7;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-summary {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+      width: 23%;
+      position: relative;
+    }
+
+    .card h3 {
+      font-size: 1em;
+      margin: 0;
+    }
+
+    .card p {
+      font-size: 1.5em;
+      margin: 0;
+      color:#333
+    }
+
+    .card .icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2em;
+    }
+
+    .total-requests {
+      background-color: #e0f7fa;
+      color: #07b6a1;
+    }
+
+    .approved-requests {
+      background-color: #e8f5e9;
+      color: #10e51a;
+    }
+
+    .pending-requests {
+      background-color: #fff3e0;
+      color: #ad6721;
+    }
+
+    .rejected-requests {
+      background-color: #ffebee;
+      color: #9a0505;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .filters input[type="text"], .filters select {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .filters button {
+      padding: 10px 15px;
+      background-color: #0b6334;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .filters button:hover {
+      background-color: #084a26;
+    }
+
+    .table {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .table thead th {
+      background-color: #e6e3d3;
+      color: #333;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .table tbody tr {
+      transition: background-color 0.3s;
+    }
+
+    .table tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .table td, .table th {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .badge-success {
+      background-color: #28a745;
+      color: #fff;
+      padding: 0.5em 1em;
+      border-radius: 30px;
+      font-size: 0.7em;
+    }
+
+    .badge-warning {
+      background-color: #f39c12;
+      color: #fff;
+      padding: 0.5em 1em;
+      border-radius: 30px;
+      font-size: 0.7em;
+    }
+
+    .badge-danger {
+      background-color: #e74c3c;
+      color: #fff;
+      padding: 0.5em 1em;
+      border-radius: 30px;
+      font-size: 0.7em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center" style="color:#5c5c0f;">Suivi des Demandes de Congé</h2>
+    <div class="dashboard-summary">
+      <div class="card total-requests" style="background-color: #0b6334;">
+        <i class="fas fa-clipboard-list icon"></i>
+        <h3>Demandes Totales</h3>
+        <p>{{ totalRequests }}</p>
+      </div>
+      <div class="card approved-requests" style="background-color:#28a745;">
+        <i class="fas fa-check-circle icon"></i>
+        <h3>Approuvées</h3>
+        <p>{{ approvedRequests }}</p>
+      </div>
+      <div class="card pending-requests" style="background-color: #f39c12;">
+        <i class="fas fa-hourglass-half icon"></i>
+        <h3>En Attente</h3>
+        <p>{{ pendingRequests }}</p>
+      </div>
+      <div class="card rejected-requests" style="background-color: #e74c3c;">
+        <i class="fas fa-times-circle icon"></i>
+        <h3>Refusées</h3>
+        <p>{{ rejectedRequests }}</p>
+      </div>
+    </div>
+    <div class="filters">
+      <input type="text" placeholder="Rechercher par nom" [(ngModel)]="searchTerm">
+      <select [(ngModel)]="filterStatus" >
+        <option value=""  style="background-color:white;">Filtrer par statut</option>
+        <option value="Approuvé"  style="background-color:white;">Approuvé</option>
+        <option value="En Attente"  style="background-color:white;">En Attente</option>
+        <option value="Refusé"  style="background-color:white;">Refusé</option>
+      </select>
+      <button (click)="exportToPDF()">Exporter PDF</button>
+      <button (click)="exportToExcel()">Exporter Excel</button>
+    </div>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Date de Début</th>
+          <th>Date de Fin</th>
+          <th>Type de Congé</th>
+          <th>État</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of filteredRequests()">
+          <td>{{ request.startDate | date }}</td>
+          <td>{{ request.endDate | date }}</td>
+          <td>{{ request.leaveType }}</td>
+          <td>
+            <span [ngClass]="{
+              'badge badge-success': request.status === 'Approuvé',
+              'badge badge-warning': request.status === 'En Attente',
+              'badge badge-danger': request.status === 'Refusé'
+            }">{{ request.status | uppercase }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</body>
+</html>

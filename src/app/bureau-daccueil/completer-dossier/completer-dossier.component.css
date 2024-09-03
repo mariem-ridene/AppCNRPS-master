@@ -1,0 +1,106 @@
+
+.content {
+
+    padding: 20px;
+    padding-top: 60px; 
+    margin-left: 0px;
+}
+
+.card {
+    width:700px;
+    position: relative;
+    right:100px
+}
+.contenu {
+display: flex;
+justify-content: center; 
+
+}
+
+.form-group {
+margin-bottom: 1.5rem; /* Espacement entre les groupes de champs */
+}
+
+.btn-primary, .btn-secondary {
+border-radius: 20px;
+padding: 10px 20px;
+border: none; /* Enlever les bordures */
+}
+
+.btn-primary {
+background-color: #265112; /* Couleur du bouton principal */
+}
+
+.btn-secondary {
+background-color: #6c757d; /* Couleur du bouton secondaire */
+}
+
+
+
+.background-img {
+position: absolute;
+top: 170px; 
+left: 130px; 
+opacity: 0.25;
+}
+
+
+.required {
+color: red; /* Définit la couleur de l'étoile en rouge */
+font-size: 1.2em; /* Augmente légèrement la taille de l'étoile (facultatif) */
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.custom-checkbox-input {
+    display: none;
+}
+
+.custom-checkbox-label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 20px;
+    user-select: none;
+}
+
+.custom-checkbox-label::before, .custom-checkbox-label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 4px;
+}
+
+.custom-checkbox-label::before {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #adb5bd;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.custom-checkbox-input:checked ~ .custom-checkbox-label::before {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.custom-checkbox-label::after {
+    content: '✔';
+    font-size: 14px;
+    color: #fff;
+    top: 55%;
+    left: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.custom-checkbox-input:checked ~ .custom-checkbox-label::after {
+    opacity: 1;
+}

@@ -1,0 +1,65 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="nav-icons">
+      <i class="fas fa-search"></i>
+  </div>
+  <div class="search-box">
+      <input type="text" placeholder="Search now">
+  </div>
+  <div class="nav-icons">
+      <a href="#" (click)="toggleFullscreen()"><i class="fas fa-expand"></i></a> <!-- Button to trigger fullscreen -->
+      <a href="#"><i class="fas fa-bell"></i><span class="notification-count">4</span></a>
+      <div class="profile-container">
+          <img src="https://via.placeholder.com/30" alt="Profile" class="profile-img">
+          <span>Slim Ben Selem</span>
+      </div>
+      <a href="#"><i class="bx bx-menu"></i></a>
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="logo-container">
+      <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+        <i class="fal fa-times close-icon"></i>
+      </button>
+      <img src="assets/logoCNRPS.png" class="logo" (click)="toggleCollapse()" />
+    </div>
+    <div class="logo-text" *ngIf="collapsed">
+      الصندوق الوطني للتقاعد والحيطة الاجتماعية
+    </div>
+    <div class="logo-text2" *ngIf="collapsed">
+      Caisse nationale de retraite et de prévoyance sociale
+    </div>
+
+
+    <!-- Scrollable container for the navigation items -->
+    <div class="sidenav-scroll ">
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let item of navData">
+          <!-- Main item with sub-items -->
+          <a class="sidenav-nav-link" *ngIf="item.items && item.items.length > 0" (click)="handleClick(item)">
+            <i class="sidenav-link-icon" [class]="item.icon"></i>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{ item.label }}</span>
+            <i *ngIf="item.items && item.items.length > 0 && collapsed" class="menu-collapse-icon" [ngClass]="!item.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'"></i>
+          </a>
+          <!-- Main item without sub-items -->
+          <a class="sidenav-nav-link" *ngIf="!item.items || item.items.length === 0" [routerLink]="[item.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="sidenav-link-icon" [class]="item.icon"></i>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{ item.label }}</span>
+          </a>
+          <!-- Sub-menu items -->
+          <div *ngIf="collapsed && item.items && item.items.length > 0">
+            <app-sublevel-menu 
+              [data]="item" 
+              [collapsed]="collapsed" 
+              [multiple]="multiple" 
+              [expanded]="item.expanded ?? false">
+            </app-sublevel-menu>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

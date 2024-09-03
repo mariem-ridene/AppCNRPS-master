@@ -1,0 +1,108 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+}
+.container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #000;
+  margin-top: 20px;
+  background: #fff;
+}
+.header {
+ 
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right {
+  text-align: right;
+  
+  margin-right: -450px;
+}
+.header-title {
+  text-align: center;
+  margin-left:-60px ;
+  margin-top: -40px;
+}
+.header-img {
+  
+  text-align: left;
+  margin-left: -500px;
+  margin-top: -130px;
+}
+.header-img img {
+  width: 100px;
+}
+.header div {
+  text-align: center;
+}
+.header h1 {
+  font-size: 20px;
+  margin: 0;
+ 
+}
+.header h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.content {
+  margin-top: 20px;
+}
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.content table, .content th, .content td {
+  border: 1px solid #000;
+}
+.content th, .content td {
+  padding: 8px;
+  text-align: center;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.footer div {
+  width: 48%;
+  text-align: center;
+}
+.note {
+  margin-top: 20px;
+  font-weight: bold;
+  border-top: 1px solid #000;
+  padding-top: 10px;
+  text-align: center;
+}
+.information p{
+  font-size:9px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.button-container button {
+  background-color: #153ae2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.button-container button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}

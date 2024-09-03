@@ -1,0 +1,62 @@
+<div class="admin-container">
+    <h2>Ajouter un Sous Admin</h2>
+
+    <form (ngSubmit)="onSubmit()" class="add-sous-admin-form">
+        <!-- Section Sélection de l'employé -->
+        <div class="form-section">
+            <div class="form-group">
+                <label for="employeeSelect">Sélectionner un Employé</label>
+                <select id="employeeSelect" (change)="onEmployeeSelected($event)">
+                    <option value="" disabled selected>Sélectionnez un employé</option>
+                    <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.nom }} {{ employee.prenom }}</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Section Cadre Informations Personnelles -->
+        <div *ngIf="selectedEmployee" class="personal-info-frame">
+            <div class="photo-section">
+                <img [src]="selectedEmployee?.photo || 'assets/default-avatar.png'" alt="Photo de Profil">
+            </div>
+            <div class="info-section">
+                <p><strong>Nom:</strong> {{ selectedEmployee?.nom }}</p>
+                <p><strong>Prénom:</strong> {{ selectedEmployee?.prenom }}</p>
+                <p><strong>Email:</strong> {{ selectedEmployee?.email }}</p>
+                <p><strong>Téléphone:</strong> {{ selectedEmployee?.telephone }}</p>
+                <p><strong>Service:</strong> {{ selectedEmployee?.service }}</p>
+            </div>
+        </div>
+
+        <!-- Section Informations de Connexion -->
+        <div class="form-section">
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input id="login" type="text" [(ngModel)]="sousAdmin.login" name="login" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de Passe</label>
+                <input id="password" type="text" [(ngModel)]="sousAdmin.password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirmer le Mot de Passe</label>
+                <div class="input-group">
+                    <input id="confirmPassword" type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required [type]="showConfirmPassword ? 'text' : 'password'" class="form-control">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary custom-btn-size" (click)="toggleConfirmPasswordVisibility()" style="border: none; background: transparent; display: flex; align-items: center;">
+                            <span class="material-icons custom-icon-size" [style.color]="showConfirmPassword ? '#f44336' : '#4CAF50'"> <!-- Rouge pour visible, vert pour masqué -->
+                                {{ showConfirmPassword ? 'visibility_off' : 'visibility' }}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>            
+
+        <!-- Bouton Soumettre -->
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Enregistrer</button>
+        </div>
+    </form>
+</div>

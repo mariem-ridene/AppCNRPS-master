@@ -1,0 +1,88 @@
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #444;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.employee-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.authorization-status {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.authorization-status span {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.custom-btn-size {
+    height: 38px; /* Ajustez la hauteur pour correspondre à celle de l'input */
+    width: 38px; /* Ajustez la largeur pour correspondre à vos besoins */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .custom-icon-size {
+    font-size: 18px; /* Ajustez la taille de l'icône en fonction de vos besoins */
+  }
+  

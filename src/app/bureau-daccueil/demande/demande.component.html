@@ -1,0 +1,103 @@
+
+<!-- Main Content -->
+<div class="content">
+    <div class="contenu">
+        <div class="col-lg-6 col-12">
+            <div class="card" style="background-color:#faf8f7;"> 
+                
+                <img src="https://upload.wikimedia.org/wikipedia/fr/6/64/CNRPS.png" alt="logo cnrps" class="background-img" width="350px" length="350px">
+                
+                <div class="card-header" >
+                    <h2 style="color:#5c5c0f;">Nouvelle Demande</h2>
+                </div>
+                <br>
+                <div class="card-content">
+                    <div class="card-body">
+                        <p>Vous devez remplir les champs pour enregistrer la demande</p>
+                        <form (ngSubmit)="onSubmit()">
+                            <div class="form-row">
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-1">Matricule<span class="required">*</span></label>
+                                        <input type="text" id="basic-form-1" class="form-control" name="matricule" [(ngModel)]="demande.matricule" style="color:black;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-2">Type de dossier<span class="required">*</span></label>
+                                        <select id="basic-form-2" class="form-control" name="typeDossier" [(ngModel)]="demande.typeDossier" style="color:black;">
+                                            <option value="PP" style="background-color:white;">PP (قرض شخصي)</option>
+                                            <option value="PV" style="background-color:white;">PV (قرض سكني )</option>
+                                            <option value="PV" style="background-color:white;">PV (قرض سيارة )</option>
+                                            <option value="CD" style="background-color:white;">CD (رأس المال عند الوفاة)</option>
+                                            <option value="AV/CD" style="background-color:white;">AV/CD (تسبقة على حساب رأس المال)</option>
+                                            <option value="P/RET" style="background-color:white;">P/RET (جراية تقاعد)</option>
+                                            <option value="P/REV" style="background-color:white;">P/REV (جراية أرملة)</option>
+                                            <option value="PTO" style="background-color:white;">PTO (جراية وقتية للأيتام)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-3">Source de dossier<span class="required">*</span></label>
+                                        <select id="basic-form-3" class="form-control" name="sourceDossier" [(ngModel)]="demande.sourceDossier" style="color:black;">
+                                            <option value="Siege" style="background-color:white;">Courrier(Centrale)</option>
+                                            <option value="Poste" style="background-color:white;">Courrier</option>
+                                            <option value="Presentiel" style="background-color:white;">Présentiel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="form-row">
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-4">Nom de l'affilié<span class="required">*</span></label>
+                                        <input type="text" id="basic-form-4" class="form-control" name="nomAffilie" [(ngModel)]="demande.nomAffilie" style="color:black;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-5">Numéro de téléphone<span class="required">*</span></label>
+                                        <input type="text" id="basic-form-5" class="form-control" name="numTelephone" [(ngModel)]="demande.numTelephone" style="color:black;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-6">Adresse Postale<span class="required">*</span></label>
+                                        <input type="text" id="basic-form-6" class="form-control" name="adressePostale" [(ngModel)]="demande.adressePostale" style="color:black;">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group mb-2">
+                                        <label for="basic-form-7">Etat de dossier<span class="required">*</span></label>
+                                        <select id="basic-form-7" name="etatDossier" class="form-control" [(ngModel)]="demande.etatDossier" style="color:black;">
+                                            <option value="Complet" style="background-color:white;">Complet</option>
+                                            <option value="Non Complet" style="background-color:white;" >Non complet</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group mb-2">
+                                <label for="basic-form-9">Commentaire</label>
+                                <textarea id="basic-form-9" rows="4" class="form-control" name="commentaire" [(ngModel)]="demande.commentaire" style="color:black;"></textarea>
+                            </div>
+                            <br>
+                            <span class="required" style="font-size: 11px;">(*) champ obligatoire</span>
+                            <br><br>
+                            <button type="submit" class="btn btn-primary mr-2">Valider</button>
+                            <input type="reset" class="btn btn-secondary" value="Annuler">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
