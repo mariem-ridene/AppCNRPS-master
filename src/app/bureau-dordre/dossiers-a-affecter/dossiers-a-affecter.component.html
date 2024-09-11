@@ -1,1 +1,21 @@
-<p>dossiers-a-affecter works!</p>
+<div *ngIf="!selectedDossier" class="dossiers-list-container">
+  <h2>Liste des dossiers reçus</h2>
+  <mat-list>
+    <mat-list-item
+      *ngFor="let dossier of dossiers$ | async"
+      class="dossier-item"
+    >
+      <div class="mat-list-item-content">
+        <div class="dossier-info">
+          <span class="dossier-details">Matricule: {{ dossier.matricule }} Nom de l'affilié: {{ dossier.nomAffilie }}</span>
+          <span class="dossier-details">Type: {{ dossier.type }} Date de Réception: {{ dossier.dateReception }}</span>
+        </div>
+        <button mat-button class="btn-scan" (click)="onScan(dossier)">
+          <mat-icon>insert_drive_file</mat-icon> Scanner
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<app-scanner *ngIf="selectedDossier" [dossier]="selectedDossier" (close)="selectedDossier = null"></app-scanner>

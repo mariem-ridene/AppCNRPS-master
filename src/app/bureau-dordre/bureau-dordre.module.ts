@@ -7,8 +7,14 @@ import { DossiersAAffecterComponent } from './dossiers-a-affecter/dossiers-a-aff
 import { DossiersAffecteeComponent } from './dossiers-affectee/dossiers-affectee.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component';
 import { SuiviCongesComponent } from './suivi-conges/suivi-conges.component';
-
-
+import { ScannerComponent } from './scanner/scanner.component';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,19 @@ import { SuiviCongesComponent } from './suivi-conges/suivi-conges.component';
     DossiersAAffecterComponent,
     DossiersAffecteeComponent,
     DemandeCongeComponent,
-    SuiviCongesComponent
+    SuiviCongesComponent,
+    ScannerComponent
   ],
   imports: [
     CommonModule,
     BureauDordreRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    MatListModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
+  ],
 })
-export class BureauDordreModule { }
+export class BureauDordreModule {}
