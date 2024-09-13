@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="title" style=" margin-bottom: 20px;font-family: 'Roboto', sans-serif;font-weight: 500; color: #333;font-size: 26px; text-align:center;" class="missing-documents" *ngIf="showMissingPaper">Notification du Dossier Incomplet </div>
-        <div class="title" style=" margin-bottom: 20px;font-family: 'Roboto', sans-serif;font-weight: 500;color: #333; font-size: 26px;" class="block-reason" *ngIf="showBlockReason">Notification du Dossier  Bloqué</div>
+        <div class="title" style=" margin-bottom: 20px;font-family: 'Roboto', sans-serif;font-weight: 500; color: #333;font-size: 30px; text-align:center;" class="missing-documents" *ngIf="showMissingPaper">Notification du Dossier Incomplet </div>
+        <div class="title" style=" margin-bottom: 20px;font-family: 'Roboto', sans-serif;font-weight: 500;color: #333; font-size: 30px;" class="block-reason" *ngIf="showBlockReason">Notification du Dossier  Bloqué</div>
         <div class="image-container">
             <img src="https://png.pngtree.com/png-vector/20200709/ourlarge/pngtree-concept-vector-illustration-of-sending-email-with-computer-png-image_2303206.jpg" alt="Notification Image" width="200px" height="200px">
         </div>
         
         <!-- Section Papiers Manquants -->
         <div class="missing-documents" *ngIf="showMissingPaper">
-            <label for="missingDocs">Cochez Les Papiers Manquants</label>
+            <label for="missingDocs"><strong> Cochez Les Papiers Manquants</strong></label>
             <div id="missingDocs" class="checkbox-group">
                 <div class="checkbox-container" *ngFor="let doc of documents">
                     <input type="checkbox" [value]="doc" (change)="updateMissingDocs($event)">

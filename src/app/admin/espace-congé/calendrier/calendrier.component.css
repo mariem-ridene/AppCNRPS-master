@@ -1,0 +1,10 @@
+
+.fc-header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.fc-event {
+  font-size: 0.5em;
+}

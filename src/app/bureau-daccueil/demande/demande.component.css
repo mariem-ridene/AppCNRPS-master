@@ -51,3 +51,15 @@ opacity: 0.25;
 color: red; /* Définit la couleur de l'étoile en rouge */
 font-size: 1.2em; /* Augmente légèrement la taille de l'étoile (facultatif) */
 }
+
+/* Dans votre fichier CSS demande.component.css */
+.is-invalid {
+    border: 1px solid red;
+    background-color: #ffe6e6;
+  }
+  
+  .matricule-error-message {
+    color: red;
+    font-size: 12px;
+  }
+  

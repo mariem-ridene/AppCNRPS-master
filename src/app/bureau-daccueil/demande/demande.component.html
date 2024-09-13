@@ -16,24 +16,36 @@
                         <p>Vous devez remplir les champs pour enregistrer la demande</p>
                         <form (ngSubmit)="onSubmit()">
                             <div class="form-row">
-                                <div class="col-md-4 col-12">
-                                    <div class="form-group mb-2">
-                                        <label for="basic-form-1">Matricule<span class="required">*</span></label>
-                                        <input type="text" id="basic-form-1" class="form-control" name="matricule" [(ngModel)]="demande.matricule" style="color:black;">
-                                    </div>
-                                </div>
+                                <!-- Champ Matricule -->
+<div class="col-md-4 col-12">
+    <div class="form-group mb-2">
+      <label for="basic-form-1">Matricule<span class="required">*</span></label>
+      <input id="matricule-input" type="text" [(ngModel)]="demande.matricule" name="matricule" class="form-control" (blur)="validateMatricule()" />
+    <div *ngIf="!matriculeValid" class="matricule-error-message">{{ matriculeErrorMessage }}</div>
+    </div>
+  </div>
+  
                                 <div class="col-md-4 col-12">
                                     <div class="form-group mb-2">
                                         <label for="basic-form-2">Type de dossier<span class="required">*</span></label>
                                         <select id="basic-form-2" class="form-control" name="typeDossier" [(ngModel)]="demande.typeDossier" style="color:black;">
-                                            <option value="PP" style="background-color:white;">PP (قرض شخصي)</option>
-                                            <option value="PV" style="background-color:white;">PV (قرض سكني )</option>
-                                            <option value="PV" style="background-color:white;">PV (قرض سيارة )</option>
+                                            <option value="pp" style="background-color:white;">PP (قرض شخصي)</option>
+                                            <option value="cont.p.p" style="background-color:white;">Cont.P.P (عقد قرض شخصي)</option>
+                                            <option value="pl" style="background-color:white;">PL (قرض سكني )</option>
+                                            <option value="pv" style="background-color:white;">PV (قرض سيارة )</option>
+                                            <option value="pu" style="background-color:white;">P/U ( قرض جامعي)</option>
+                                            <option value="cont.p.u" style="background-color:white;"> Cont.P.U (عقد قرض جامعي)</option>
                                             <option value="CD" style="background-color:white;">CD (رأس المال عند الوفاة)</option>
                                             <option value="AV/CD" style="background-color:white;">AV/CD (تسبقة على حساب رأس المال)</option>
                                             <option value="P/RET" style="background-color:white;">P/RET (جراية تقاعد)</option>
                                             <option value="P/REV" style="background-color:white;">P/REV (جراية أرملة)</option>
                                             <option value="PTO" style="background-color:white;">PTO (جراية وقتية للأيتام)</option>
+                                            <option value="req" style="background-color:white;">Req (عريضة)</option>
+                                            <option value="immat" style="background-color:white;">IMMAT (بطاقة ترقيم)</option>
+                                            <option value="if" style="background-color:white;">IF (منحة عائلية)</option>
+                                            <option value="dec/attach" style="background-color:white;">DEC/ATTACH (قرار إلحاق)</option>
+                                            <option value="dec/f/attach" style="background-color:white;">DEC/F/ATTACH ( قرار نهاية إلحاق)</option>
+                                           
                                         </select>
                                     </div>
                                 </div>

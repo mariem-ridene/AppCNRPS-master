@@ -1,4 +1,3 @@
-
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.5;
@@ -8,7 +7,8 @@ body {
   text-align: right;
 }
 .container {
-  width: 50%;
+  width: 100%;
+  max-width: 800px; /* S'assure que le contenu s'adapte bien à la page A4 */
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #000;
@@ -16,56 +16,45 @@ body {
   background: #fff;
 }
 .header {
- 
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+  position: relative;
 }
 
-.header-right {
-  text-align: right;
-  
-  margin-right: -450px;
-}
-.header-title {
-  text-align: center;
-  margin-left:-60px ;
-  margin-top: -40px;
-}
 .header-img {
-  
+  flex: 1;
   text-align: left;
-  margin-left: -500px;
-  margin-top: -130px;
+  margin-left: -750px;
+  
 }
+
 .header-img img {
   width: 100px;
 }
-.header div {
+
+.header-right {
+  flex: 2;
+  text-align: right;
+}
+
+.header-title {
+  flex: 3;
   text-align: center;
 }
+
 .header h1 {
-  font-size: 20px;
+  font-size: 35px;
   margin: 0;
- 
+  line-height: 1.2;
 }
-.header h2 {
-  font-size: 16px;
-  margin: 0;
-}
+
 .content {
   margin-top: 20px;
 }
-.content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-.content table, .content th, .content td {
-  border: 1px solid #000;
-}
-.content th, .content td {
-  padding: 8px;
-  text-align: center;
+.content p {
+  margin: 5px 0;
 }
 .footer {
   display: flex;
@@ -77,16 +66,14 @@ body {
   text-align: center;
 }
 .note {
-  margin-top: 20px;
   font-weight: bold;
-  border-top: 1px solid #000;
   padding-top: 10px;
+  font-size: 10px;
   text-align: center;
 }
-.information p{
-  font-size:9px;
+.information p {
+  font-size: 9px;
 }
-
 .button-container {
   display: flex;
   justify-content: center;
@@ -105,4 +92,33 @@ body {
 .button-container button:hover {
   background-color: #218838;
   transform: translateY(-2px);
+}
+
+/* Styles pour l'impression */
+@media print {
+  body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      font-size: 2em;
+  }
+  .container {
+      width: 100%;
+      border: none;
+  }
+  .button-container {
+      display: none;
+  }
+  .note {
+     margin-top: 200px;
+      width: 100%;
+      text-align: center;
+      font-size: 9px; /* Taille plus petite pour la note */
+  }
+  .header-img {
+    flex: 1;
+    text-align: left;
+    margin-left: -900px;
+    
+  }
 }

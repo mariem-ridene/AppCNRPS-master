@@ -27,14 +27,14 @@
           </td>
           <td>
             <div class="action-buttons">
-              <button class="btn btn-secondary" (click)="updateStatus(dossier)" routerLink="/bureau-de-service/dossier/detail" style="border-radius: 12px;background-color: gray;">
+              <button class="btn btn-secondary" (click)="updateStatus(dossier)"  style="border-radius: 12px;background-color: gray;">
                 Mettre à jour 
               </button>
 
-              <i class="fas fa-file-alt support-icon" (click)="showDocuments(dossier.matricule)" title="Voir les documents" routerLink="/bureau-de-service/dossier/support"></i>
+              <i class="fas fa-file-alt support-icon" (click)="showDocuments(dossier.matricule)" title="Voir les documents" ></i>
               
               <!-- Icône de notification pour "Informer affilié" pour les dossiers bloqués -->
-              <i *ngIf="dossier.etat === 'Bloqué'" class="fas fa-bell notify-icon" (click)="informerAffilie(dossier)" title="Informer affilié" routerLink="/bureau-de-service/dossier/notifier"></i>
+              <i *ngIf="dossier.etat === 'Bloqué'" class="fas fa-bell notify-icon" (click)="informerAffilie(dossier)" title="Informer affilié" ></i>
               
               <!-- Icône de suppression professionnelle et cohérente avec l'interface -->
               <i *ngIf="dossier.etat === 'Finalisé' || dossier.etat === 'Bloqué'" class="fas fa-trash-alt delete-icon" (click)="deleteDossier(dossier)" title="Supprimer le dossier" style="color: #e60000;"></i>
