@@ -1,84 +1,45 @@
-/*import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { CalendarOptions } from '@fullcalendar/angular';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CommonModule } from '@angular/common';
-
+import { Component, OnInit } from '@angular/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import listPlugin from '@fullcalendar/list';
+import { CalendarOptions } from '@fullcalendar/core';
+import frLocale from '@fullcalendar/core/locales/fr'; // Importer la localisation française
 
 @Component({
   selector: 'app-calendrier',
   templateUrl: './calendrier.component.html',
-  styleUrls: ['./calendrier.component.scss']
+  styleUrls: ['./calendrier.component.css']
 })
 export class CalendrierComponent implements OnInit {
-
-  
-
-  currentMonth: Date = new Date();
-  calendarEvents: any[] = [];
-
-  constructor(private dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    this.loadEvents();
-  }
-
-  loadEvents() {
-    this.calendarEvents = [
-      { title: 'Jour Férié', date: '2024-01-01', color: '#ff0000' },
-      { title: 'Congé de John Doe', date: '2024-01-05', color: '#28a745' },
-      { title: 'Congé de Jane Doe', date: '2024-01-08', color: '#ff9800' },
-      // Ajoutez d'autres événements ici
-    ];
-  }
-
-  previousMonth() {
-    this.currentMonth.setMonth(this.currentMonth.getMonth() - 1);
-    this.loadEvents();
-  }
-
-  nextMonth() {
-    this.currentMonth.setMonth(this.currentMonth.getMonth() + 1);
-    this.loadEvents();
-  }
-
-  onEventClick(info: any) {
-    this.dialog.open(EventDetailsDialog, {
-      width: '400px',
-      data: {
-        eventTitle: info.event.title,
-        eventDate: info.event.start
-      }
-    });
-  }
-
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    events: this.calendarEvents,
-    eventClick: this.onEventClick.bind(this),
+    plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
+    locale: frLocale, // Utilisation du français
+    weekends: true,
+    events: [
+      { title: 'Nouvel An', date: '2024-01-01' },
+      { title: 'Fête de l\'Indépendance', date: '2024-03-20' },
+      { title: 'Fête du Travail', date: '2024-05-01' },
+      { title: 'Fête de la République', date: '2024-07-25' },
+      { title: 'Fête des Martyrs', date: '2024-04-09' },
+      { title: 'Révolution et Jeunesse', date: '2024-01-14' },
+      { title: 'Event 1', date: '2024-09-01' },
+      { title: 'Event 2', date: '2024-09-02' }
+      // Vous pouvez ajouter d'autres jours fériés ici
+    ],
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    }
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    },
+    // Vous pouvez personnaliser les créneaux horaires ici pour planifier la semaine
+    slotMinTime: '08:00:00',
+    slotMaxTime: '18:00:00'
   };
+
+  constructor() { }
+
+  ngOnInit(): void { }
+
 }
-
-// Dialog pour afficher les détails de l'événement
-@Component({
-  selector: 'event-details-dialog',
-  template: `
-    <h2 mat-dialog-title>Détails de l'événement</h2>
-    <mat-dialog-content>
-      <p><strong>Événement :</strong> {{data.eventTitle}}</p>
-     <p><strong>Date :</strong> {{data.eventDate | date:'fullDate'}}</p>
-    </mat-dialog-content>
-    <mat-dialog-actions>
-      <button mat-button mat-dialog-close>Fermer</button>
-    </mat-dialog-actions>
-  `
-})
-export class EventDetailsDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
-
-}*/

@@ -13,19 +13,32 @@ import { ModifierEmComponent } from './Employés/modifier-em/modifier-em.compone
 import { AjouterEmComponent } from './Employés/ajouter-em/ajouter-em.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalendrierComponent } from './espace-congé/calendrier/calendrier.component';
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+
+// Importez les plugins ici
+import dayGridPlugin from '@fullcalendar/daygrid'; 
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import listPlugin from '@fullcalendar/list';
 
 
 @NgModule({
   declarations: [
     AdminComponent,SousAdminComponent, AjouterSAComponent,
     ModifierSaComponent,EmployeesComponent, ListeCongeComponent,
-     DetailsCongeComponent, ModifierEmComponent, AjouterEmComponent
+     DetailsCongeComponent, ModifierEmComponent, AjouterEmComponent, CalendrierComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    FormsModule
-  ]
+    FormsModule,
+    FullCalendarModule,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AdminModule { }

@@ -14,12 +14,19 @@ export class NotificationComponent implements OnInit {
   blockingReason: string = '';
   selectedDocs: string[] = [];
   documents: string[] = [
-    'Preuve d\'identité',
-    'Preuve de résidence',
-    'Preuve de revenu',
-    'Rapport médical',
-    'Rapport familiale',
-    'Resultat'
+    
+    'extrait de naissance (مضمون ولادة)',
+    'Copie de la carte d\'identité nationale (نسخة بطاقة تعريف وطنية)',
+    'Certificat médical (شهادة طبية)',
+    'Facture (فاتورة)',
+    'certificat de travail(شهادة العمل)',
+    'Fiche de paie (قسيمة الدفع)',
+    'Formulaire de demande de retraite (نموذج طلب التقاعد)',
+    'Certificat de mariage (شهادة الزواج)',
+    'Acte de décès (شهادة الوفاة)',
+    'Attestation de présence des enfants à charge (شهادة حضور الأطفال المعالين)',
+    'RIB-Relevé d\'Identité Bancaire (بيان هوية البنك)'
+    
     
   ];
   

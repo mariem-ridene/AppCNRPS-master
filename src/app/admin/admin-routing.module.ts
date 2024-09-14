@@ -9,6 +9,7 @@ import { ListeCongeComponent } from './espace-congé/liste-conge/liste-conge.com
 import { DetailsCongeComponent } from './espace-congé/details-conge/details-conge.component';
 import { AjouterEmComponent } from './Employés/ajouter-em/ajouter-em.component';
 import { ModifierEmComponent } from './Employés/modifier-em/modifier-em.component';
+import { CalendrierComponent } from './espace-congé/calendrier/calendrier.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: AdminComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'liste-employes', component: EmployeesComponent},
   { path: 'liste-congés', component: ListeCongeComponent},
   { path: 'details-congés', component: DetailsCongeComponent},
+  { path: 'calendrier', component: CalendrierComponent},
   { path: 'employé/ajouter', component: AjouterEmComponent},
   { path: 'employé/modifier', component: ModifierEmComponent},
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

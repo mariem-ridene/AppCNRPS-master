@@ -50,39 +50,39 @@ export class MenuService {
       },
       {
         label: 'Espace Sous-Admins',
-        icon: 'supervisor_account',
+        icon: 'fal fa-user-shield',
         routeLink: 'admin/sousAdmin',
       },
       {
         label: 'Espace Employés',
-        icon: '',
+        icon: 'fal fa-users',
         routeLink: 'admin/liste-employes',
       },
       {
         label: 'Espace Congés',
-        icon: 'fa fa-calendar',
+        icon: 'fal fa-calendar-check',
         routeLink: '',
         items: [
           {
             routeLink: 'admin/liste-congés',
-            icon: '',
+            icon: 'fal fa-envelope-open-text ',
             label: 'Demandes',
           },
           {
-            routeLink: '',
-            icon: '',
+            routeLink: 'admin/calendrier',
+            icon: 'fal fa-calendar',
             label: 'Calendrier',
           },
         ],
       },
       {
         label: 'Espace Dossiers',
-        icon: '',
+        icon: 'fal fa-folder-open',
         routeLink: '',
       },
       {
         label: 'Affectation Standard',
-        icon: '',
+        icon: 'fal fa-exchange-alt',
         routeLink: '',
         items: [
           {
@@ -147,32 +147,32 @@ export class MenuService {
     bureauDaccueil: [
       {
         label: 'Tableau De Bord',
-        icon: '',
+        icon: 'fal fa-chart-line',
         routeLink: 'bureau-daccueil/dashbord',
       },
       {
         label: 'Nouvelle Demmande',
-        icon: '',
+        icon: 'fal fa-file-plus',
         routeLink: 'bureau-daccueil/demande',
       },
       {
         label: 'Compléter dossier',
-        icon: '',
+        icon: 'fal fa-clipboard-check',
         routeLink: 'bureau-daccueil/completerDossier',
       },
       {
         label: 'Congés',
-        icon: '',
+        icon: 'fal fa-user-clock',
         routeLink: '',
         items: [
           {
             routeLink: 'congé/demande',
-            icon: '',
+            icon: 'fal fa-file-signature',
             label: 'Demande',
           },
           {
             routeLink: 'congé/suivie',
-            icon: '',
+            icon: 'fal fa-user-check',
             label: 'Suivie',
           },
         ],
@@ -181,27 +181,27 @@ export class MenuService {
     bureauDeService: [
       {
         label: 'Tableau De Bord',
-        icon: '',
+        icon: 'fal fa-chart-line',
         routeLink: 'bureau-de-service/dash',
       },
       {
         label: 'Dossiers',
-        icon: '',
+        icon: 'fal fa-folder-open',
         routeLink: 'bureau-de-service/dossiers',
       },
       {
         label: 'Congés',
-        icon: '',
+        icon: 'fal fa-user-clock',
         routeLink: '',
         items: [
           {
             routeLink: 'congé/demande',
-            icon: '',
+            icon: 'fal fa-file-signature',
             label: 'Demande',
           },
           {
             routeLink: 'congé/suivie',
-            icon: '',
+            icon: 'fal fa-user-check',
             label: 'Suivie',
           },
         ],

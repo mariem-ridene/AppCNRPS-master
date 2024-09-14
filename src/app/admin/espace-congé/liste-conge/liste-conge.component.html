@@ -5,18 +5,18 @@
         </div>
         <div class="search-filters">
             <div class="date-range">
-                <label for="startDate"><i class="material-icons">date_range</i> Du</label>
-                <input type="date" id="startDate" placeholder="Recherche par période">
-                <label for="endDate"><i class="material-icons">date_range</i> À</label>
-                <input type="date" id="endDate" placeholder="Recherche par période">
+                <label for="startDate">Du</label>
+                <input type="date" id="startDate" [(ngModel)]="startDate" (change)="filterRequests()">
+                <label for="endDate">À</label>
+                <input type="date" id="endDate" [(ngModel)]="endDate" (change)="filterRequests()">
             </div>
             <div class="filter-type">
-                <select>
+                <select [(ngModel)]="selectedType" (change)="filterRequests()">
                     <option value="">Type de congés</option>
-                    <option value="vacation">Repos</option>
-                    <option value="sick">Maladie</option>
-                    <option value="personal">Exceptionnel</option>
-                    <option value="other">Autre</option>
+                    <option value="Repos">Repos</option>
+                    <option value="Maladie">Maladie</option>
+                    <option value="Exceptionnel">Exceptionnel</option>
+                    <option value="Autre">Autre</option>
                 </select>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let demande of demandes">
+                <tr *ngFor="let demande of filteredDemandes">
                     <td>{{ demande.nom }} {{ demande.prenom }}</td>
                     <td>{{ demande.typeConges }}</td>
                     <td>{{ demande.periode }}</td>

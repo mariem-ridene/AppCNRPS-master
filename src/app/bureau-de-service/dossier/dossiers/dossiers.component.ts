@@ -57,12 +57,12 @@ export class DossiersComponent implements OnInit {
 
   updateStatus(dossier: any) {
     // Logique de mise à jour du statut
-    this.router.navigate(['/service/dossier/detail']);
+    this.router.navigate(['/bureau-de-service/dossier/detail']);
   }
 
   showDocuments(matricule: string) {
     // Logique pour afficher les documents
-    this.router.navigate(['/service/dossier/support']);
+    this.router.navigate(['/bureau-de-service/dossier/support']);
   }
 
   deleteDossier(dossier: any) {
