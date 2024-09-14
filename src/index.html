@@ -12,8 +12,32 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Ajouter Dynamsoft Web TWAIN SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/dwt/dist/dynamsoft.webtwain.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/dwt/dist/dynamsoft.webtwain.min.css"
+    />
+    <script>
+      window.onload = function () {
+        if (typeof Dynamsoft !== "undefined") {
+          console.log("Dynamsoft Web TWAIN SDK loaded successfully.");
+        } else {
+          console.error("Failed to load Dynamsoft Web TWAIN SDK.");
+        }
+      };
+    </script>
   </head>
-  <body>
+  <body class="mat-typography">
     <app-root></app-root>
   </body>
 </html>

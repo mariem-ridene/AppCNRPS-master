@@ -45,7 +45,7 @@ export class MenuService {
     admin: [
       {
         label: 'Tableau De Bord',
-        icon: 'fal fa-chart-line', 
+        icon: 'fal fa-chart-line',
         routeLink: 'admin/dashboard',
       },
       {
@@ -132,12 +132,12 @@ export class MenuService {
         label: 'Congé',
         items: [
           {
-            routeLink: 'bureau-dordre/demande-conge',
+            routeLink: 'congé/demande',
             icon: 'fal fa-calendar-day',
             label: 'Demande de congé',
           },
           {
-            routeLink: 'bureau-dordre/suivi-conges',
+            routeLink: 'congé/suivie',
             icon: 'fal fa-clock',
             label: 'Suivie congé',
           },

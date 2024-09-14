@@ -1,214 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demande de Congé</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f2f1e9;
-      font-size: 1em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 120vh;
-      margin: 0;
-    }
-    .container {
-      max-width: 650px;
-      padding: 30px;
-      background-color: #faf8f7;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 500;
-      color: #333;
-    }
-    .form-control {
-      border-radius: 5px;
-      border: 1px solid #333;
-      color: #333;
-    }
-    .btn-primary, .btn-secondary {
-      border-radius: 20px;
-      padding: 10px 20px;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 500;
-    }
-    .btn-primary {
-      background-color: green;
-      border-color: #333;
-    }
-    .btn-primary:hover {
-      background-color: rgb(6, 97, 6);
-      border-color: #555;
-    }
-    .btn-secondary {
-      background-color: rgb(158, 5, 5);
-      border-color: #777;
-    }
-    .btn-secondary:hover {
-      background-color: rgb(106, 4, 4);
-      border-color: #999;
-    }
-    .constraint {
-      font-size: 0.85em;
-      color: #555;
-      margin-top: 5px;
-    }
-    .file-input-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .file-input {
-      position: relative;
-      overflow: hidden;
-    }
-    .file-input input[type="file"] {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 100px;
-      text-align: right;
-      opacity: 0;
-      cursor: pointer;
-    }
-    .file-input-label {
-      background-color: #999;
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 5px;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 400;
-      cursor: pointer;
-    }
-    .file-name {
-      color: #333;
-      font-size: 0.9em;
-      border: 1px solid #333;
-      border-radius: 5px;
-      padding: 8px;
-      background-color: #f9f9f9;
-      flex-grow: 1; /* Prend tout l'espace disponible */
-    }
-    .form-group:last-of-type {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
-    select option{
-        background-color: #f9f9f9;
-        color: black;
-    }
 
-   /* CSS pour le conteneur principal */
-.container {
-  margin-bottom: 50px; /* Pour donner de l'espace au bouton en bas */
-}
-
-/* Style pour le bouton "Suivre les congés" */
-.follow-leave-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-.btn-follow-leave {
-  background-color: #5c5c0f; /* Couleur cohérente avec le titre */
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Espace entre l'icône et le texte */
-}
-
-.btn-follow-leave:hover {
-  background-color: #f39c12; /* Couleur plus foncée au survol */
-  transform: translateY(-2px);
-}
-
-.btn-follow-leave i {
-  font-size: 18px;
-}
-
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2 class="text-center" style="color:#5c5c0f;">Demande de Congé</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="leaveType">Type de congé</label>
-        <select id="leaveType" name="leaveType" class="form-control" [(ngModel)]="leaveType" style="color: black;" required (change)="onLeaveTypeChange()">
-          <option value="" disabled selected>Sélectionnez le type de congé</option>
-          <option value="vacation">Repot</option>
-          <option value="sick">Maladie</option>
-          <option value="personal">Exceptionnel</option>
-          <option value="other">Autre</option>
-        </select>
-        <div *ngIf="leaveType === 'vacation'" class="constraint">Repot : 1 mois par année</div>
-        <div *ngIf="leaveType === 'sick'" class="constraint">Maladie : Selon le certificat médical</div>
-        <div *ngIf="leaveType === 'personal'" class="constraint">Exceptionnel : Jusqu'à 5 jours par an</div>
-        <div *ngIf="leaveType === 'other'" class="constraint">Autre : À préciser avec l'employeur</div>
-      </div>
-
-      <div class="form-group">
-        <label for="startDate">Date de début</label>
-        <input type="date" id="startDate" name="startDate" class="form-control" style="color: black;" required [(ngModel)]="startDate" (change)="validateDates()">
-        <div *ngIf="startDateError" class="error-message" style="color:red ;">{{ startDateError }}</div>
-      </div>
-
-      <div class="form-group">
-        <label for="endDate">Date de fin</label>
-        <input type="date" id="endDate" name="endDate" class="form-control" style="color: black;" required [(ngModel)]="endDate" (change)="validateDates()">
-        <div *ngIf="endDateError" class="error-message" style="color:red ;">{{ endDateError }}</div>
-      </div>
-
-      <div class="form-group">
-        <label for="reason">Cause (optionnelle)</label>
-        <textarea id="reason" name="reason" rows="4" class="form-control" style="color: black;" [(ngModel)]="reason"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="document">Certificat médical ou autre document (optionnel)</label>
-        <div class="file-input-container">
-          <div class="file-input">
-            <input type="file" id="document" name="document" class="form-control" (change)="onFileChange($event)">
-            <label for="document" class="file-input-label">Choisir un fichier</label>
+  <body>
+    <div class="container">
+      <h2 class="text-center" style="color: #5c5c0f">Demande de Congé</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="leaveType">Type de congé</label>
+          <select
+            id="leaveType"
+            name="leaveType"
+            class="form-control"
+            [(ngModel)]="leaveType"
+            style="color: black"
+            required
+            (change)="onLeaveTypeChange()"
+          >
+            <option value="" disabled selected>
+              Sélectionnez le type de congé
+            </option>
+            <option value="vacation">Repos</option>
+            <option value="sick">Maladie</option>
+            <option value="personal">Exceptionnel</option>
+            <option value="other">Autre</option>
+          </select>
+          <div *ngIf="leaveType === 'vacation'" class="constraint">
+            Repot : 1 mois par année
           </div>
-          <div id="file-name" class="file-name">{{ fileName || 'Aucun fichier choisi' }}</div>
+          <div *ngIf="leaveType === 'sick'" class="constraint">
+            Maladie : Selon le certificat médical
+          </div>
+          <div *ngIf="leaveType === 'personal'" class="constraint">
+            Exceptionnel : Jusqu'à 5 jours par an
+          </div>
+          <div *ngIf="leaveType === 'other'" class="constraint">
+            Autre : À préciser avec l'employeur
+          </div>
         </div>
-      </div>
 
-      <div class="form-group text-right">
-        <button type="submit" class="btn btn-primary" [disabled]="formInvalid">Valider</button>
-        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
-      </div>
-    </form>
-  </div>
-  <div class="follow-leave-container">
-    <button type="button" routerLink="/congé/suivie" class="btn btn-follow-leave">
-      <i class="fas fa-chart-line"></i> Suivre Les Congés
-    </button>
-  </div>
-  
-</body>
 
-</html>
+        <div class="form-group">
+          <label for="startDate">Date de début</label>
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            class="form-control"
+            style="color: black"
+            required
+            [(ngModel)]="startDate"
+            (change)="validateDates()"
+          />
+          <div *ngIf="startDateError" class="error-message" style="color: red">
+            {{ startDateError }}
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="endDate">Date de fin</label>
+          <input
+            type="date"
+            id="endDate"
+            name="endDate"
+            class="form-control"
+            style="color: black"
+            required
+            [(ngModel)]="endDate"
+            (change)="validateDates()"
+          />
+          <div *ngIf="endDateError" class="error-message" style="color: red">
+            {{ endDateError }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reason">Cause (optionnelle)</label>
+          <textarea
+            id="reason"
+            name="reason"
+            rows="4"
+            class="form-control"
+            style="color: black"
+            [(ngModel)]="reason"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="document"
+            >Certificat médical ou autre document (optionnel)</label
+          >
+          <div class="file-input-container">
+            <div class="file-input">
+              <input
+                type="file"
+                id="document"
+                name="document"
+                class="form-control"
+                (change)="onFileChange($event)"
+              />
+              <label for="document" class="file-input-label"
+                >Choisir un fichier</label
+              >
+            </div>
+            <div id="file-name" class="file-name">
+              {{ fileName || "Aucun fichier choisi" }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group text-right">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="formInvalid"
+          >
+            Valider
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="onCancel()">
+            Annuler
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="follow-leave-container">
+      <button
+        type="button"
+        routerLink="/congé/suivie"
+        class="btn btn-follow-leave"
+      >
+        <i class="fas fa-chart-line"></i> Suivre Les Congés
+      </button>
+    </div>
+  </body>
+
