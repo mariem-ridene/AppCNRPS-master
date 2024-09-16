@@ -1,0 +1,163 @@
+.dossiers-list-container {
+  padding: 20px;
+  background-color: #f7f7f7; /* Harmonized with 'dossiers-a-affecter' */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #252222bc;
+  margin-bottom: 20px;
+}
+
+mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 50px;
+  border-bottom: 1px solid #ddd;
+  background-color: #eeeeea; /* Harmonized with 'dossiers-a-affecter' */
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+mat-list-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mat-list-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.dossier-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  gap: 10px;
+}
+
+.dossier-details {
+  font-size: 16px;
+  color: #333;
+}
+
+.btn-view, .btn-close {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #f39c12; /* Harmonized with 'dossiers-a-affecter' */
+  color: #ffffff;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-view mat-icon, .btn-close mat-icon {
+  color: #ffffff;
+}
+
+.btn-view:hover, .btn-close:hover {
+  background-color: #ffc739; /* Harmonized hover color */
+  transform: translateY(-2px) scale(1.00);
+}
+
+.scanner-container {
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px; /* Added spacing at the top */
+}
+
+.uploaded-files {
+  margin-top: 20px;
+}
+
+.uploaded-files h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #252222bc; /* Harmonized title color */
+  margin-bottom: 15px;
+}
+
+.uploaded-files table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.uploaded-files th,
+.uploaded-files td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.uploaded-files th {
+  background-color: #f5f5f5;
+}
+
+.uploaded-files tr:hover {
+  background-color: #eeeeea; /* Row hover effect */
+}
+
+.uploaded-files td input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pdf-preview {
+  margin-top: 20px;
+}
+
+.pdf-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.pdf-actions .btn-action {
+  margin-right: 10px;
+  background-color: #2196f3; /* Harmonized button color */
+  color: #ffffff;
+}
+
+.pdf-actions .btn-action:hover {
+  background-color: #1976d2;
+}
+.btn-confirm {
+  background-color: #4caf50; /* Couleur de fond verte */
+  color: #ffffff; /* Couleur du texte blanche */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex; /* Pour aligner l'icône et le texte */
+  align-items: center; /* Centrer verticalement l'icône et le texte */
+  gap: 8px; /* Espace entre l'icône et le texte */
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s; /* Effet de transition */
+}
+
+.btn-confirm:hover {
+  background-color: #388e3c; /* Couleur de fond plus foncée au survol */
+  transform: translateY(-2px) scale(1); /* Légère animation au survol */
+}
+
+.btn-confirm mat-icon {
+  color: #ffffff; /* Couleur de l'icône blanche */
+}
+

@@ -1,26 +1,26 @@
 .dossiers-list-container {
   padding: 20px;
-  background-color: #dddddd00;
+  background-color: #f7f7f7;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 h2 {
   font-size: 24px;
   font-weight: 600;
   color: #252222bc;
-  margin-bottom: 20px; /* Espace en dessous du titre */
+  margin-bottom: 20px;
 }
 
 mat-list-item {
   display: flex;
   justify-content: space-between;
-  
   align-items: center;
-  margin-bottom: 15px; /* Espace entre les éléments de la liste */
-  padding: 50px; /* Espace interne autour du contenu */
+  margin-bottom: 15px;
+  padding: 50px;
   border-bottom: 1px solid #ddd;
-  background-color: #5c5c0f0a;
+  background-color: #eeeeea;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -42,7 +42,7 @@ mat-list-item:hover {
   display: flex;
   flex-direction: column;
   margin-right: 20px;
-  gap: 10px; /* Espace entre les lignes d'information */
+  gap: 10px;
 }
 
 .dossier-details {
@@ -50,7 +50,7 @@ mat-list-item:hover {
   color: #333;
 }
 
-.btn-scan {
+.btn-view {
   border: none;
   border-radius: 5px;
   padding: 8px 16px;
@@ -61,17 +61,113 @@ mat-list-item:hover {
   transition: background-color 0.3s, transform 0.2s;
   display: flex;
   align-items: center;
-  gap: 8px; /* Espace entre l'icône et le texte */
-}
-.mat-mdc-button:not(:disabled) {
-  color: #fff;
+  gap: 8px;
 }
 
-.btn-scan mat-icon {
-  color: #ffffff; /* Couleur de l'icône */
+.btn-view mat-icon {
+  color: #ffffff;
 }
 
-.btn-scan:hover {
-  background-color: #ffa515;
-  transform: translateY(-2px) scale(1.00);
+.btn-view:hover {
+  background-color: #ffc739;
+  transform: translateY(-2px) scale(1);
+}
+
+.scanner-container {
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.file-input {
+  margin: 15px 0;
+  display: block;
+  font-size: 14px;
+}
+
+.btn-select-files {
+  background-color: #ffffff; /* Blue color for 'Sélect.fichiers' button */
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.uploaded-files {
+  margin-top: 20px;
+}
+
+.uploaded-files h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #252222bc;
+  margin-bottom: 15px;
+}
+
+.uploaded-files table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.uploaded-files th,
+.uploaded-files td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.uploaded-files th {
+  background-color: #f5f5f5;
+}
+
+.uploaded-files tr:hover {
+  background-color: #eeeeea;
+}
+
+.uploaded-files td input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn-affecter {
+  margin-top: 20px;
+  background-color: #45a049;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-affecter:hover {
+  background-color: #4caf50;;
+}
+
+.pdf-container {
+  margin-top: 20px;
+}
+
+.pdf-container .btn-action {
+  margin-right: 10px;
+  background-color: #2196f3;
+  color: #ffffff;
+}
+
+.pdf-container .btn-action:hover {
+  background-color: #1976d2;
+}
+
+.pdf-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
 }
