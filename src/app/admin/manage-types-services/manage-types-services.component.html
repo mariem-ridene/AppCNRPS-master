@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="column">
+    <h2>Gérer les Services</h2>
+    <input [(ngModel)]="nouveauService" placeholder="Nouveau service" />
+    <button (click)="ajouterService()" class="btn-add">Ajouter Service</button>
+
+    <ul>
+      <li *ngFor="let service of services; let i = index">
+        {{ service }}
+        <i
+          (click)="supprimerService(i)"
+          class="fas fa-trash-alt icon-delete"
+        ></i>
+      </li>
+    </ul>
+  </div>
+  <div class="column">
+    <h2>Gérer les Types de Dossiers</h2>
+    <input [(ngModel)]="nouveauType" placeholder="Nouveau type de dossier" />
+    <button (click)="ajouterType()" class="btn-add">Ajouter Type</button>
+
+    <ul>
+      <li *ngFor="let type of typesDeDossier; let i = index">
+        {{ type }}
+        <i (click)="supprimerType(i)" class="fas fa-trash-alt icon-delete"></i>
+      </li>
+    </ul>
+  </div>
+</div>

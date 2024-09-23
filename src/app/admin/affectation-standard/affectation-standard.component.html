@@ -1,0 +1,71 @@
+<div class="container">
+  <h2>Affectation des Types de Dossiers aux Employés et Services</h2>
+
+  <div class="form-group">
+    <label for="employee">Sélectionner un employé :</label>
+    <select [(ngModel)]="selectedEmployee" id="employee">
+      <option *ngFor="let employee of employees" [value]="employee">
+        {{ employee }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="service">Sélectionner un service :</label>
+    <select [(ngModel)]="selectedService" id="service">
+      <option *ngFor="let service of services" [value]="service">
+        {{ service }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="typeDossier">Sélectionner un type de dossier :</label>
+    <select [(ngModel)]="selectedTypeDeDossier" id="typeDossier">
+      <option *ngFor="let type of typesDeDossier" [value]="type">
+        {{ type }}
+      </option>
+    </select>
+  </div>
+
+  <button (click)="ajouterAffectation()" class="btn-add">
+    Ajouter Affectation
+  </button>
+
+  <h3>Affectations</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Employé</th>
+        <th>Service</th>
+        <th>Types de Dossiers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let affectation of affectations"
+        (click)="remplirChamps(affectation.employee, affectation.service)"
+      >
+        <td>{{ affectation.employee }}</td>
+        <td>{{ affectation.service }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let typeDossier of affectation.typesDossier">
+              {{ typeDossier }}
+              <i
+                (click)="
+                  supprimerAffectation(
+                    affectation.employee,
+                    affectation.service,
+                    typeDossier
+                  )
+                "
+                class="fas fa-trash-alt icon-delete"
+              ></i>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

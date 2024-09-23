@@ -1,0 +1,167 @@
+<div class="suivi-dossier-container">
+  <!-- Tabs for Services -->
+  <div class="tabs">
+    <ul class="tab-list">
+      <li
+        *ngFor="let service of services; let i = index"
+        [class.active]="i === selectedTab"
+        (click)="selectedTab = i"
+      >
+        {{ service }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Show Advanced Search only when "Recherche" is selected -->
+  <div
+    *ngIf="services[selectedTab] === 'Recherche'"
+    class="advanced-search-container"
+  >
+    <div class="search-header">
+      <i class="fas fa-folder-open search-icon"></i>
+
+      <!-- Search Input with Search and Clear icons -->
+      <div class="search-wrapper">
+        <input
+          type="text"
+          [(ngModel)]="searchCriteria.searchTerm"
+          placeholder="Recherche..."
+          class="search-input"
+        />
+        <i class="fas fa-search search-icon-btn" (click)="searchDossiers()"></i>
+        <i class="fas fa-times clear-icon-btn" (click)="clearSearch()"></i>
+      </div>
+
+      <!-- Filter Icon for toggling filters -->
+      <i
+        class="fas fa-sliders-h search-filter-icon"
+        (click)="toggleFilters()"
+      ></i>
+    </div>
+
+    <!-- Toggle Filter Fields based on showFilters -->
+    <div class="search-fields" *ngIf="showFilters">
+      <input
+        type="text"
+        [(ngModel)]="searchCriteria.matricule"
+        placeholder="Matricule"
+      />
+      <input
+        type="text"
+        [(ngModel)]="searchCriteria.affilie"
+        placeholder="Nom de l'affilié"
+      />
+
+      <select [(ngModel)]="searchCriteria.typeDossier">
+        <option value="">Type de dossier</option>
+        <option value="AV/DC">AV/DC</option>
+        <option value="PTO">PTO</option>
+      </select>
+
+      <select [(ngModel)]="searchCriteria.etatDossier">
+        <option value="">État du dossier</option>
+        <option value="en cours">En cours</option>
+        <option value="Terminé">Terminé</option>
+        <option value="Manquant">Manquant</option>
+      </select>
+
+      <select [(ngModel)]="searchCriteria.service">
+        <option value="">Service</option>
+        <option *ngFor="let service of services" [value]="service">
+          {{ service }}
+        </option>
+      </select>
+
+      <div class="date-range">
+        <label>Plage de dates :</label>
+        <input type="date" [(ngModel)]="searchCriteria.dateRange.start" />
+        <input type="date" [(ngModel)]="searchCriteria.dateRange.end" />
+      </div>
+    </div>
+
+    <!-- Display filtered dossiers -->
+    <div class="search-results">
+      <h3>Résultats de la recherche</h3>
+      <div *ngIf="filteredDossiers.length > 0">
+        <div
+          *ngFor="let dossier of filteredDossiers"
+          class="dossier-item dossier-style"
+        >
+          <div class="dossier-info">
+            <p><strong>Matricule :</strong> {{ dossier.matricule }}</p>
+            <p><strong>Nom de l'affilié :</strong> {{ dossier.affilie }}</p>
+            <p><strong>Type :</strong> {{ dossier.type }}</p>
+            <p>
+              <strong>Date de réception :</strong> {{ dossier.dateReception }}
+            </p>
+            <p><strong>Employé :</strong> {{ dossier.employee }}</p>
+            <p><strong>Service :</strong> {{ dossier.service }}</p>
+          </div>
+          <div class="dossier-status">
+            <span
+              class="status-label"
+              [ngStyle]="{ 'background-color': dossier.statusColor }"
+            >
+              {{ dossier.status }}
+            </span>
+            <button class="btn-reaffecter" [disabled]="!dossier.canReaffect">
+              Réaffecter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="filteredDossiers.length === 0">
+        <p>Aucun résultat trouvé pour les critères de recherche.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Employees and Dossiers when any other service is selected -->
+  <div *ngIf="services[selectedTab] !== 'Recherche'" class="tab-content">
+    <div
+      *ngFor="let employee of getFilteredEmployees()"
+      class="employee-container"
+    >
+      <button class="employee-toggle" (click)="toggleEmployee(employee)">
+        {{ employee.name }}
+      </button>
+
+      <!-- Accordion with dossiers -->
+      <div
+        class="dossier-list"
+        *ngIf="employee.open && employee.dossiers.length > 0"
+      >
+        <div
+          *ngFor="let dossier of employee.dossiers"
+          class="dossier-item dossier-style"
+        >
+          <div class="dossier-info">
+            <p><strong>Matricule :</strong> {{ dossier.matricule }}</p>
+            <p><strong>Nom de l'affilié :</strong> {{ dossier.affilie }}</p>
+            <p><strong>Type :</strong> {{ dossier.type }}</p>
+            <p>
+              <strong>Date de réception :</strong> {{ dossier.dateReception }}
+            </p>
+          </div>
+          <div class="dossier-status">
+            <span
+              class="status-label"
+              [ngStyle]="{ 'background-color': dossier.statusColor }"
+            >
+              {{ dossier.status }}
+            </span>
+            <button class="btn-reaffecter" [disabled]="!dossier.canReaffect">
+              Réaffecter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show a message if no employees are found -->
+    <div *ngIf="getFilteredEmployees().length === 0">
+      <p>Aucun employé disponible pour ce service.</p>
+    </div>
+  </div>
+</div>

@@ -78,29 +78,17 @@ export class MenuService {
       {
         label: 'Espace Dossiers',
         icon: 'fal fa-folder-open',
-        routeLink: '',
+        routeLink: 'admin/suivi-dossier',
       },
       {
         label: 'Affectation Standard',
         icon: 'fal fa-exchange-alt',
-        routeLink: '',
-        items: [
-          {
-            routeLink: '',
-            icon: '',
-            label: 'Service',
-          },
-          {
-            routeLink: '',
-            icon: '',
-            label: 'Type',
-          },
-          {
-            routeLink: '',
-            icon: '',
-            label: 'Mise à jour',
-          },
-        ],
+        routeLink: 'admin/affectation-standard',
+      },
+      {
+        routeLink: 'admin/manage-types-services',
+        icon: 'fal fa-sync-alt',
+        label: 'Mise à jour',
       },
     ],
     bureauDordre: [

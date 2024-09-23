@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminComponent } from './admin-dashboard/admin.component'; 
+import { AdminComponent } from './admin-dashboard/admin.component';
 
 import { SousAdminComponent } from './SousAdmins/sous-admin/sous-admin.component';
 import { AjouterSAComponent } from './SousAdmins/ajouter-sa/ajouter-sa.component';
@@ -17,20 +17,26 @@ import { CalendrierComponent } from './espace-congé/calendrier/calendrier.compo
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
-
-// Importez les plugins ici
-import dayGridPlugin from '@fullcalendar/daygrid'; 
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import listPlugin from '@fullcalendar/list';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { AffectationStandardComponent } from './affectation-standard/affectation-standard.component';
+import { ManageTypesServicesComponent } from './manage-types-services/manage-types-services.component';
+import { SuiviDossierComponent } from './suivi-dossier/suivi-dossier.component';
 
 @NgModule({
   declarations: [
-    AdminComponent,SousAdminComponent, AjouterSAComponent,
-    ModifierSaComponent,EmployeesComponent, ListeCongeComponent,
-     DetailsCongeComponent, ModifierEmComponent, AjouterEmComponent, CalendrierComponent
+    AdminComponent,
+    SousAdminComponent,
+    AjouterSAComponent,
+    ModifierSaComponent,
+    EmployeesComponent,
+    ListeCongeComponent,
+    DetailsCongeComponent,
+    ModifierEmComponent,
+    AjouterEmComponent,
+    CalendrierComponent,
+    AffectationStandardComponent,
+    ManageTypesServicesComponent,
+    SuiviDossierComponent,
   ],
   imports: [
     CommonModule,
@@ -41,4 +47,4 @@ import listPlugin from '@fullcalendar/list';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AdminModule { }
+export class AdminModule {}
