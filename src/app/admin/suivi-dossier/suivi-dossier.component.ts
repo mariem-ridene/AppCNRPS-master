@@ -14,10 +14,10 @@ export class SuiviDossierComponent {
   // List of services including "Recherche"
   services = [
     'Service Pensions',
-    'Service Financier',
-    'Service Contentieux',
-    'Service Controle',
-    'Service',
+    'Service Accueil',
+    'Service Finance',
+    'Service Juridique',
+    'Service Contrôle',
     'Recherche', // New Recherche service
   ];
 
@@ -41,7 +41,7 @@ export class SuiviDossierComponent {
   employees = [
     {
       service: 'Service Pensions',
-      name: 'Employee 1',
+      name: 'Ahmed Ben Ammar',
       open: false,
       dossiers: [
         {
@@ -55,7 +55,7 @@ export class SuiviDossierComponent {
         },
         {
           matricule: '56869',
-          affilie: 'Khalil',
+          affilie: 'Asma Ben Abdalla',
           type: 'PTO',
           dateReception: '2024-02-05',
           status: 'Terminé',
@@ -66,12 +66,12 @@ export class SuiviDossierComponent {
     },
     {
       service: 'Service Pensions',
-      name: 'Employee 3', // New Employee 3
+      name: 'Mouhammed Slama', // New Employee 3
       open: false,
       dossiers: [
         {
           matricule: '56789',
-          affilie: 'Sara',
+          affilie: 'Sara ben salim',
           type: 'PL',
           dateReception: '2024-01-20',
           status: 'en cours',
@@ -80,7 +80,7 @@ export class SuiviDossierComponent {
         },
         {
           matricule: '67890',
-          affilie: 'Ali',
+          affilie: 'Ali ben mouhammad',
           type: 'CD',
           dateReception: '2024-02-01',
           status: 'Manquant',
@@ -90,13 +90,13 @@ export class SuiviDossierComponent {
       ],
     },
     {
-      service: 'Service Pensions',
-      name: 'Employee 4', // New Employee 4
+      service: 'Service Juridique',
+      name: 'Sarra Abidi', // New Employee 4
       open: false,
       dossiers: [
         {
           matricule: '45678',
-          affilie: 'Zainab',
+          affilie: 'Zainab Bou Kharrata',
           type: 'P/U',
           dateReception: '2024-03-10',
           status: 'en cours',
@@ -105,7 +105,7 @@ export class SuiviDossierComponent {
         },
         {
           matricule: '98765',
-          affilie: 'Omar',
+          affilie: 'Omar Slouma',
           type: 'Cont.P.U',
           dateReception: '2024-03-12',
           status: 'Terminé',
@@ -116,12 +116,12 @@ export class SuiviDossierComponent {
     },
     {
       service: 'Service Financier',
-      name: 'Employee 2',
+      name: 'Asma Ben Abdalla',
       open: false,
       dossiers: [
         {
           matricule: '7890',
-          affilie: 'Ahmed',
+          affilie: 'Ahmed Zarrouk',
           type: 'PL',
           dateReception: '2024-03-06',
           status: 'en cours',

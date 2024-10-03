@@ -44,7 +44,7 @@
       <thead>
         <tr>
           <th>Numéro</th>
-          <th>Type de Dossier</th>
+          <th></th>
           <th>Action</th>
         </tr>
       </thead>
@@ -52,7 +52,7 @@
         <tr *ngFor="let item of uploadedFiles; let i = index">
           <td>{{ i + 1 }}</td>
           <td>
-            <input [(ngModel)]="item.type" placeholder="Non spécifié" />
+            <input [(ngModel)]="item.type" placeholder="Commentaire" />
           </td>
           <td>
             <button mat-icon-button (click)="onViewPdf(item.url)">

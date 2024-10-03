@@ -17,6 +17,7 @@ const routes: Routes = [
     path: 'dossiers-affectee',
     component: DossiersAffecteeComponent,
   },
+ 
   
   { path: '', redirectTo: 'bureau-dordre-dashboard', pathMatch: 'full' },
 ];

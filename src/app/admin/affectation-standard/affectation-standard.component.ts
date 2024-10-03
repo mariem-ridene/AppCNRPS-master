@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./affectation-standard.component.css'],
 })
 export class AffectationStandardComponent {
-  employees: string[] = ['Employé 1', 'Employé 2', 'Employé 3', 'Employé 4'];
+  employees: string[] = ['Ahmed Ben Ammar', 'Asma Ben Abdalla', 'Mouhammed Slama', 'Sarra Abidi'];
   typesDeDossier: string[] = [
     'PP (قرض شخصي)',
     'Cont.P.P (عقد قرض شخصي)',
@@ -18,8 +18,9 @@ export class AffectationStandardComponent {
   ];
   services: string[] = [
     'Service Pensions',
-    'Service Financier',
-    'Service Contentieux',
+    'Service Accueil',
+    'Service Finance',
+    'Service Juridique',
     'Service Contrôle',
   ];
 
@@ -64,7 +65,6 @@ export class AffectationStandardComponent {
     }
   }
 
-  // This function is triggered when clicking on an employee in the table
   remplirChamps(employee: string, service: string) {
     this.selectedEmployee = employee;
     this.selectedService = service;

@@ -1,0 +1,28 @@
+<div class="manage-demand-types-container">
+    <h2>Gérer les Types de Demande</h2>
+  
+    <!-- Ajouter un nouveau type de demande -->
+    <div class="add-demand-type">
+      <input [(ngModel)]="newDemandType" placeholder="Ajouter un nouveau type de demande" />
+      <button (click)="addDemandType()" class="btn-add">Ajouter</button>
+    </div>
+  
+    <!-- Liste des types de demande -->
+    <ul class="demand-type-list">
+      <li *ngFor="let type of demandTypes; let i = index">
+        <div *ngIf="!type.editable">{{ type.name }}</div>
+  
+        <!-- Mode édition -->
+        <div *ngIf="type.editable">
+          <input [(ngModel)]="type.name" />
+          <button (click)="saveDemandType(i)" class="btn-save">Enregistrer</button>
+        </div>
+  
+        <div class="actions">
+          <button (click)="editDemandType(i)" *ngIf="!type.editable" class="btn-edit">Modifier</button>
+          <button (click)="deleteDemandType(i)" class="btn-delete">Supprimer</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

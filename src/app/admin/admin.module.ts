@@ -19,8 +19,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AffectationStandardComponent } from './affectation-standard/affectation-standard.component';
-import { ManageTypesServicesComponent } from './manage-types-services/manage-types-services.component';
 import { SuiviDossierComponent } from './suivi-dossier/suivi-dossier.component';
+import { ManageServicesComponent } from './manage-services/manage-services.component';
+import { ManageDemandTypesComponent } from './manage-demand-types/manage-demand-types.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +36,9 @@ import { SuiviDossierComponent } from './suivi-dossier/suivi-dossier.component';
     AjouterEmComponent,
     CalendrierComponent,
     AffectationStandardComponent,
-    ManageTypesServicesComponent,
     SuiviDossierComponent,
+    ManageServicesComponent,
+    ManageDemandTypesComponent,
   ],
   imports: [
     CommonModule,

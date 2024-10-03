@@ -1,0 +1,28 @@
+<div class="manage-services-container">
+    <h2>Gérer les Services</h2>
+  
+    <!-- Ajouter un nouveau service -->
+    <div class="add-service">
+      <input [(ngModel)]="newService" placeholder="Ajouter un nouveau service" />
+      <button (click)="addService()" class="btn-add">Ajouter</button>
+    </div>
+  
+    <!-- Liste des services -->
+    <ul class="service-list">
+      <li *ngFor="let service of services; let i = index">
+        <div *ngIf="!service.editable">{{ service.name }}</div>
+  
+        <!-- Mode édition -->
+        <div *ngIf="service.editable">
+          <input [(ngModel)]="service.name" />
+          <button (click)="saveService(i)" class="btn-save">Enregistrer</button>
+        </div>
+  
+        <div class="actions">
+          <button (click)="editService(i)" *ngIf="!service.editable" class="btn-edit">Modifier</button>
+          <button (click)="deleteService(i)" class="btn-delete">Supprimer</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

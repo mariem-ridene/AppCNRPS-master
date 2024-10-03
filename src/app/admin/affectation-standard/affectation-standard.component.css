@@ -53,7 +53,6 @@ ul {
   padding-left: 0;
 }
 
-/* Style for row hover */
 tbody tr {
   transition: background-color 0.3s ease;
   cursor: pointer;

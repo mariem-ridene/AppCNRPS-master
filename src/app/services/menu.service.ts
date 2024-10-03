@@ -83,7 +83,24 @@ export class MenuService {
       {
         label: 'Affectation Standard',
         icon: 'fal fa-exchange-alt',
-        routeLink: 'admin/affectation-standard',
+        routeLink: '',
+        items: [
+          {
+            routeLink: 'admin/affectation-standard',
+            icon: '',
+            label: 'Mettre à jour',
+          },
+          {
+            routeLink: 'admin/manage-services',
+            icon: '',
+            label: 'Les services',
+          },
+          {
+            routeLink: 'admin/manage-demand-types',
+            icon: '',
+            label: 'Les types de demand',
+          },
+        ],
       },
       {
         routeLink: 'admin/manage-types-services',
