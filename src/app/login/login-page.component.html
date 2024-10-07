@@ -1,17 +1,18 @@
-<!-- login.component.html -->
 <body>
   <div class="login-container">
-      <img src="assets/logoCNRPS.png" alt="CNRPS Logo">
-      <h2>Connexion à votre compte</h2>
-      <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" placeholder="Identifiant" required>
-      </div>
-      <div class="input-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Mot de passe" required>
-      </div>
-      <button class="login-btn" [routerLink]="['/admin/dashboard']">Se connecter</button>
-      <a [routerLink]="['/forgot-password']" class="forgot-password">Mot de passe oublié ?</a>
+    <img src="assets/logoCNRPS.png" alt="CNRPS Logo" />
+    <h2>Connexion à votre compte</h2>
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input type="text" placeholder="Identifiant" required />
+    </div>
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input type="password" placeholder="Mot de passe" required />
+    </div>
+    <button class="login-btn">Se connecter</button>
+    <a routerLink="/forgot-password" class="forgot-password"
+      >Mot de passe oublié ?</a
+    >
   </div>
 </body>

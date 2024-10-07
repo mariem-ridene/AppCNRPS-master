@@ -16,15 +16,26 @@ import { MsgTelComponent } from './msg-tel/msg-tel.component';
 import { LoginPageComponent } from './login/login-page.component';
 import { DmcComponent } from './congé/dmc/dmc.component';
 import { SuivieComponent } from './congé/suivie/suivie.component';
+import { ForgotPasswordPageComponent } from './forgot-password-page/forgot-password-page.component';
 
 @NgModule({
-  declarations: [AppComponent, UnauthorizedComponent,CourrierBloqComponent, NotificationComponent, MsgTelComponent,LoginPageComponent, DmcComponent, SuivieComponent],
+  declarations: [
+    AppComponent,
+    UnauthorizedComponent,
+    CourrierBloqComponent,
+    NotificationComponent,
+    MsgTelComponent,
+    DmcComponent,
+    SuivieComponent,
+    ForgotPasswordPageComponent,
+    LoginPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    FontAwesomeModule, 
+    FontAwesomeModule,
     CommonModule,
     AdminRoutingModule,
     SharedModule,
